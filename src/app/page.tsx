@@ -78,29 +78,24 @@ export default function Home() {
             priority
           />
         </a>
-        <a
-          href="https://wefunder.com/biostateai/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-brand text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-brand-dark transition"
-        >
-          Invest Now
-        </a>
       </nav>
 
-      {/* ── Two-column layout ── */}
+      {/* ── Hero title (full width, above two-column layout) ── */}
+      <div className="mb-6">
+        <p className="text-xs font-semibold text-gray-text uppercase tracking-widest mb-2">
+          BIOSTATE AI
+        </p>
+        <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight">
+          Help 90% of people live to 90
+        </h1>
+      </div>
+
+      {/* ── Two-column layout (starts at video level) ── */}
       <div className="flex flex-col lg:flex-row gap-12">
         {/* ── Left: Main content ── */}
         <div className="flex-1 min-w-0">
           {/* ── Hero ── */}
           <section className="mb-10">
-            <p className="text-xs font-semibold text-gray-text uppercase tracking-widest mb-2">
-              BIOSTATE AI
-            </p>
-            <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-6">
-              Help 90% of people live to 90
-            </h1>
-
             {/* Video - YouTube embed */}
             <div className="relative aspect-video rounded-xl overflow-hidden mb-6 bg-black">
               <iframe
