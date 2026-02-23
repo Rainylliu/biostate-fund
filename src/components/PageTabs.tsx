@@ -48,15 +48,17 @@ export default function PageTabs({
             36
           </span>
         </button>
-        <button
+        <a
+          href="https://wefunder.com/biostateai/ask"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px] transition"
-          disabled
         >
-          Ask A Question{" "}
+          Ask A Question on Wefunder{" "}
           <span className="inline-flex items-center justify-center bg-gray-200 text-gray-text text-[11px] font-bold rounded-full w-5 h-5 ml-1">
             10
           </span>
-        </button>
+        </a>
       </div>
 
       {/* Tab content */}
