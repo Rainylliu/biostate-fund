@@ -92,7 +92,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-function AvatarPlaceholder({ name }: { name: string }) {
+function AvatarPlaceholder() {
   return (
     <div className="w-14 h-14 rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center">
       <svg
@@ -116,20 +116,24 @@ function AvatarWithInitial({ name }: { name: string }) {
   );
 }
 
-export default function InvestorTestimonials() {
+export default function InvestorSayTab() {
   const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? testimonials : testimonials.slice(0, 6);
+  const visible = showAll ? testimonials : testimonials.slice(0, 8);
 
   return (
-    <section id="investor-testimonials" className="mb-14">
-      <h2 className="text-2xl font-bold mb-8">What Investors Say</h2>
+    <div>
+      <h2 className="text-2xl font-bold mb-2">What Investors Say</h2>
+      <p className="text-gray-text text-[15px] mb-8">
+        {testimonials.length} investors have shared their thoughts
+      </p>
+
       <div className="space-y-6">
         {visible.map((t, i) => (
           <div key={i} className="flex gap-4 items-start">
             {t.hasAvatar ? (
               <AvatarWithInitial name={t.name} />
             ) : (
-              <AvatarPlaceholder name={t.name} />
+              <AvatarPlaceholder />
             )}
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between">
@@ -152,14 +156,15 @@ export default function InvestorTestimonials() {
           </div>
         ))}
       </div>
-      {!showAll && testimonials.length > 6 && (
+
+      {!showAll && testimonials.length > 8 && (
         <button
           onClick={() => setShowAll(true)}
           className="mt-6 px-6 py-2 border-2 border-brand text-brand font-semibold text-[14px] rounded-lg hover:bg-brand hover:text-white transition uppercase tracking-wider"
         >
-          Show More
+          Show All {testimonials.length} Reviews
         </button>
       )}
-    </section>
+    </div>
   );
 }

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import InvestSidebar from "@/components/InvestSidebar";
 import InvestorTestimonials from "@/components/InvestorTestimonials";
+import PageTabs from "@/components/PageTabs";
+import InvestorSayTab from "@/components/InvestorSayTab";
 
 /* ─── Section image: full-width image from Wefunder screenshots ─── */
 function SectionImage({
@@ -138,460 +140,11 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Tabs */}
-            <div className="flex gap-8 border-b border-gray-border pb-4 mb-10 text-[13px] font-semibold uppercase tracking-wider">
-              <span className="text-dark border-b-2 border-dark pb-4 -mb-[17px] cursor-pointer">
-                Overview
-              </span>
-              <span className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px]">
-                Posts
-              </span>
-              <span className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px]">
-                What Investors Say{" "}
-                <span className="inline-flex items-center justify-center bg-brand text-white text-[11px] font-bold rounded-full w-5 h-5 ml-1">
-                  36
-                </span>
-              </span>
-              <span className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px]">
-                Ask A Question{" "}
-                <span className="inline-flex items-center justify-center bg-gray-200 text-gray-text text-[11px] font-bold rounded-full w-5 h-5 ml-1">
-                  10
-                </span>
-              </span>
-            </div>
-          </section>
-
-          {/* ── Highlights ── */}
-          <section className="mb-14">
-            <h2 className="text-2xl font-bold text-brand mb-6">Highlights</h2>
-            <div className="space-y-5">
-              <Highlight
-                num={1}
-                text="$20M raised from leading VCs including Accel, Matter Venture Partners, InfoEdge Ventures, Vision Plus, and Caltech Fund."
-              />
-              <Highlight
-                num={2}
-                text="Repeat Founder: previously built $100M+ funded genomic platform with $21M revenue (2022)."
-              />
-              <Highlight
-                num={3}
-                text="20+ clinical collaborations with top hospitals including Harvard Med School, MD Anderson, Cornell… Accessing 100,000+ patient samples worldwide."
-              />
-              <Highlight
-                num={4}
-                text="Active clinical research programs in Leukemia, Melanoma, Lung cancer, Diabetes, Lupus, Multiple Sclerosis, and Coronary Artery Disease"
-              />
-            </div>
-          </section>
-
-          {/* ── Team (brief) ── */}
-          <section className="mb-14">
-            <h2 className="text-2xl font-bold mb-6">Team</h2>
-            <div className="space-y-6">
-              <TeamMember
-                name="Dave Zhang"
-                role="Co-Founder/CEO"
-                bio="Presidential award-winning bioengineering professor with 60+ top publications and 40+ patents. Previously co-founder & CEO of innovative cancer diagnostics company that raised over $100M+ from Sequoia and AstraZeneca and reached $20M+/yr revenue."
-              />
-              <TeamMember
-                name="Jeremy Sobotta"
-                role="CFO"
-                bio="Former CFO, Perimeter Medical Imaging AI (NASDAQ: PINK). Led $4B+ in M&A capital across biotech & medtech. 15+ years senior finance leadership at Stryker & Padagis."
-              />
-              <TeamMember
-                name="Kutapa Muthanna"
-                role="CEO, Bayosthiti.AI (India Subsidiary)"
-                bio="Former Director at KPMG; 20 years of finance and client relations leadership at KPMG and Fidelity Investments. Led global client tax and technology services."
-              />
-            </div>
-          </section>
-
-          <hr className="border-gray-border mb-12" />
-
-          {/* ── Why Biostate AI ── */}
-          <section className="mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-2 leading-tight">
-              Help 90% of people live to 90
-            </h2>
-            <h3 className="text-[22px] font-bold mb-6">Why Biostate AI?</h3>
-            <p className="text-[18px] leading-[1.8]">
-              Today, pharma companies spend billions of dollars and multiple years
-              to develop new drugs that benefit less than 20% of patients for each
-              hyper-narrow disease. At Biostate, we believe that with the power of
-              big data and modern AI, we can build a general purpose biomedical AI
-              that can help 90% of humanity live to 90 years old by understanding
-              and helping cure all diseases.
-            </p>
-          </section>
-
-          {/* ── A Worldwide Clinical Network ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/clinical-network.jpg"
-              alt="A Worldwide Clinical Network - logos of 30+ partner hospitals and universities"
+            {/* Tabs + Tab Content */}
+            <PageTabs
+              overviewContent={<OverviewContent />}
+              investorSayContent={<InvestorSayTab />}
             />
-            <p className="text-[17px] leading-[1.8]">
-              Since its founding in 2023, Biostate has become a global
-              constellation of organizations spanning 4 countries. We have
-              established partnerships with dozens of leading hospitals including
-              Harvard Medical School, MD Anderson Cancer Center, Cornell Weill
-              Medical School, Peking Renmin Hospital (China), and Narayana Health
-              (India).
-            </p>
-          </section>
-
-          {/* ── 6 Diseases Focus ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/diseases-focus.jpg"
-              alt="6 Diseases Focus - Lung Cancer, Leukemia, Melanoma, Autoimmune Disease, Cardiovascular Disease, Diabetes"
-            />
-            <p className="text-[17px] leading-[1.8] mb-4">
-              Through these collaborations, we can obtain real-world clinical data
-              to train our predictive medical AI, N-act. Our active clinical
-              research programs initially focus on leukemia, lung cancer,
-              melanoma, diabetes, lupus, multiple sclerosis, and heart disease.
-            </p>
-            <p className="text-[17px] leading-[1.8]">
-              The N-act model helps identify early warning patterns that standard
-              tests often miss. These insights enable doctors to make earlier,
-              better-informed decisions and ultimately improve care for millions of
-              patients worldwide.
-            </p>
-          </section>
-
-          {/* ── Top-Tier Investor Backing ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/investor-backing.jpg"
-              alt="Top-Tier Investor Backing - Series A Lead Investor Accel, with logos of Scale, Etsy, DJI, Dropbox, Discord, Fiverr, Facebook, Spotify, Slack"
-            />
-            <p className="text-[17px] leading-[1.8]">
-              Biostate&apos;s Series A (2025) was led by Accel (Series A investors
-              in Facebook, Scale AI, Slack, and Discord), and Biostate&apos;s
-              earliest investors include Dario Amodei (co-founder/CEO of
-              Anthropic), Emily Leproust (co-founder/CEO of Twist Bioscience),
-              and the California Institute of Technology.
-            </p>
-          </section>
-
-          {/* ── Built On Real Gains ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/real-gains.jpg"
-              alt="Built On Real Gains - Significant Growth, Exceptional Returns, +169% Investor Gain Since 2023"
-            />
-            <p className="text-[17px] leading-[1.8]">
-              From its 2023 Seed round, Biostate&apos;s investors have seen up to
-              +169% gain on the value of their investments. These top investors
-              believe and support Biostate&apos;s vision of a future of healthy
-              living &ndash; will you join them?
-            </p>
-          </section>
-
-          {/* ── The World Is Losing Billions of Healthy Years ── */}
-          <section className="mb-14">
-            <h3 className="text-2xl font-bold mb-4">
-              The World Is Losing Billions of Healthy Years
-            </h3>
-            <p className="text-[17px] leading-[1.8] mb-6">
-              Today, the average global life expectancy is about 71 years (WHO).
-              Most people lose nearly two decades of healthy life not because
-              their diseases were incurable, but because doctor prescribe
-              treatment for the &ldquo;average&rdquo; patient instead of
-              specifically optimized for them. Precision medicine has the power to
-              change this, but it is currently accessible to less than 5% of the
-              world.
-            </p>
-
-            <SectionImage
-              src="/images/healthy-years-lost.jpg"
-              alt="20 Healthy Years Lost - The average global life expectancy is 71, bar chart showing healthy years vs disease years"
-            />
-
-            <p className="text-[17px] leading-[1.8] mb-6">
-              If we can find a way to extend healthy lifespan to 90, the impact
-              will be enormous: adding 19 extra healthy years to each of
-              Earth&apos;s 8 billion people creates a combined 150 billion healthy
-              years of life.
-            </p>
-
-            <SectionImage
-              src="/images/qaly.jpg"
-              alt="Each Quality-Adjusted Life Year (QALY) is worth $20,000-$100,000+"
-            />
-
-            <p className="text-[17px] font-bold mb-4">
-              This is why our mission matters.
-            </p>
-            <p className="text-[17px] leading-[1.8]">
-              Biostate has been working on the innovation of multiomics testing
-              and advanced AI technologies to achieve this mission, and allowing
-              your grandparents, your parents, and you to live longer and happier
-              without battling the specter of disease.
-            </p>
-          </section>
-
-          {/* ── Affordable Multiomics At Scale ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/multiomics-scale.jpg"
-              alt="Affordable Multiomics At Scale - Biostate's Sequencing Platform: less than $50 for 30,000 genes vs Traditional DNA/RNA Analysis: $3000+ for <500 genes"
-            />
-            <p className="text-[17px] leading-[1.8]">
-              DNA and RNA sequencing technologies used today were invented in a
-              different era and not intended to scale to millions of people.
-              Genetic tests like Foundation One for cancer have a price tag of
-              over $3000 to analyze 500 genes. We&apos;ve invented and deployed
-              technology to do genetic analysis for less than $50, and on 30,000
-              genes rather than 500. This uniquely allows us to scale data
-              collection to millions of patient samples, with proper informed
-              consent and physician support, in order to train powerful medical
-              AI.
-            </p>
-          </section>
-
-          {/* ── Ultra-Efficient RNAseq ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/rnaseq.jpg"
-              alt="Ultra-Efficient RNAseq - 10x Lower Cost, 10x Less Input, Any Sample"
-            />
-            <ul className="space-y-3 text-[17px] leading-[1.8] list-disc list-inside">
-              <li>10&times; lower cost than traditional RNA sequencing</li>
-              <li>
-                10&times; less input required: one FFPE curl or 1 mL of plasma
-                can uncover 30,000+ genes
-              </li>
-              <li>
-                Works on damaged, degraded, or ultra-small samples that normally
-                fail in standard pipelines
-              </li>
-            </ul>
-          </section>
-
-          {/* ── Ultra-Reliable DNAseq ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/dnaseq.jpg"
-              alt="Ultra-Reliable DNAseq - 8x Lower Cost, >95% Uniform Coverage, 260% GC-Rich Gain"
-            />
-            <ul className="space-y-3 text-[17px] leading-[1.8] list-disc list-inside">
-              <li>
-                8x lower cost than traditional DNA sequencing (Higher margin)
-              </li>
-              <li>
-                &gt;95% uniform coverage at 30&times; depth, high diagnostic
-                reliability
-              </li>
-              <li>
-                260% improvement in notoriously difficult GC-rich regions
-              </li>
-            </ul>
-          </section>
-
-          {/* ── State-Of-The-Art Scientist AI ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/k-dense-ai.jpg"
-              alt="State-Of-The-Art Scientist AI - K-Dense, outperforming ChatGPT, Gemini, and Deepseek by 60%"
-            />
-            <p className="text-[17px] leading-[1.8] mb-4">
-              Modern general-purpose AI models were not built to analyze
-              terabytes of human molecular data. DNA or RNA sequencing data from
-              a single person is usually 5000x larger than ChatGPT&apos;s working
-              memory (100,000 words). That&apos;s why we built K-Dense &ndash; an
-              autonomous AI scientist specializing in bio/medicine and
-              outperforming ChatGPT, Gemini, and Deepseek by 60%.
-            </p>
-            <p className="text-[17px] leading-[1.8]">
-              Working with Dr. David Sinclair, one of the world&apos;s leading
-              aging researchers, K-Dense helped build the most accurate model for
-              predicting biological age. In the process, K-Dense discovered four
-              new RNA biomarkers of aging, uncovering biology that had never been
-              documented before.
-            </p>
-          </section>
-
-          {/* ── Go to Market ── */}
-          <section className="mb-14">
-            <h3 className="text-2xl font-bold mb-4">Go to Market</h3>
-            <p className="text-[17px] font-semibold mb-2">
-              Our pricing is simple.
-            </p>
-            <p className="text-[17px] leading-[1.8] mb-6">
-              RNA tests cost $80 per sample. DNA tests cost $125 per sample.
-              Gross margins are above 70%.
-            </p>
-
-            <SectionImage
-              src="/images/market-10b.jpg"
-              alt=">$10B/year - U.S. cancer diagnostic testing market, >70% gross margins"
-            />
-
-            <p className="text-[17px] leading-[1.8]">
-              In the U.S. alone, cancer diagnostic testing represents a market of
-              over $70B, with more than $25B per year coming from repeat tests,
-              and this market continues to grow each year. This is only part of a
-              larger opportunity across many additional disease areas where
-              Biostate&apos;s technology can create substantial value.
-            </p>
-          </section>
-
-          {/* ── A Global Footprint ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/global-footprint.jpg"
-              alt="A Global Footprint - China 1.4B, India 1.4B, Saudi Arabia 1.8B - Billions of Patients, One Integrated Platform"
-            />
-            <p className="text-[17px] leading-[1.8] mb-4">
-              With operations across the United States, China, India, and the
-              Middle East, Biostate operates inside the world&apos;s
-              fastest-growing healthcare markets:
-            </p>
-            <ul className="space-y-3 text-[17px] leading-[1.8] list-disc list-inside">
-              <li>
-                <strong>China:</strong> 1.4B population; rapidly developing
-                pharmaceutical industry building new drugs
-              </li>
-              <li>
-                <strong>India:</strong> 1.4B population; world&apos;s greatest
-                manufacturer of affordable generic and biosimilar drugs
-              </li>
-              <li>
-                <strong>Saudi Arabia:</strong> Spiritual center of the 1.8B
-                Muslim world with over 100 million worldwide pilgrims per year;
-                strong government initiatives and incentives to modernize health
-                through Vision 2030.
-              </li>
-            </ul>
-            <p className="text-[17px] leading-[1.8] mt-4 font-semibold">
-              No other precision-medicine company combines global wet labs, AI
-              platforms, and multiomic pipelines across these regions like us.
-            </p>
-          </section>
-
-          {/* ── Our Leadership Team ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/leadership-team.jpg"
-              alt="Our Leadership Team - David Zhang Ph.D. Co-Founder & CEO, Jeremy Sobotta CFO, and Senior Leadership"
-            />
-            <p className="text-[17px] leading-[1.8]">
-              Our leadership team combines deep scientific expertise, proven
-              company-building experience, and global operational leadership. Led
-              by a repeat founder with a strong track record in molecular
-              diagnostics and supported by seasoned financial and technical
-              executives, the team brings together strengths across biotech, AI,
-              and international markets&mdash;positioning Biostate.ai to execute
-              at scale and translate cutting-edge science into real-world impact.
-            </p>
-          </section>
-
-          {/* ── Guided By Global Experts ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/global-experts.jpg"
-              alt="Guided By Global Experts - Advisory board of world-class clinicians, researchers, and innovators"
-            />
-            <p className="text-[17px] leading-[1.8]">
-              This advisory board brings together world-class clinicians,
-              researchers, and innovators from leading institutions to guide and
-              support Biostate.ai&apos;s mission. Backed by expertise across
-              genomics, cancer, cardiovascular, autoimmune, and rare diseases,
-              these advisors provide critical scientific, clinical, and strategic
-              insight&mdash;ensuring our technology is credible, clinically
-              relevant, and built to scale real-world impact.
-            </p>
-          </section>
-
-          {/* ── Who's Building With Us ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/investors-grid.jpg"
-              alt="Who's Building With Us - Institutional Investors: Accel, Matter Venture Partners, Vision Plus Capital, Catapult VC, InfoEdge Ventures, Caltech Fund. Individual Investors: Prasad Chintamaneni, Dario Amodei, Mike Schnall-Levin, Emily Leproust, Joris Poort, Arpan Sheth"
-            />
-          </section>
-
-          {/* ── Multi-Engine Revenue Growth ── */}
-          <section className="mb-14">
-            <h3 className="text-2xl font-bold mb-4">
-              Multi-Engine Revenue Growth
-            </h3>
-            <p className="text-[17px] leading-[1.8] mb-6">
-              Biostate AI is scaling through multiple high-margin growth engines:
-              U.S. clinical diagnostics, proprietary AI software (K-Dense), and
-              expansion across India, China, and the Middle East.
-            </p>
-          </section>
-
-          {/* ── Financial Projections ── */}
-          <section className="mb-14">
-            <SectionImage
-              src="/images/financial-projections.jpg"
-              alt="Financial Projections (2026-2029) - Revenue projected to grow from $10.5M in 2026 to $180M by 2029"
-            />
-            <p className="text-[17px] leading-[1.8]">
-              Revenue is projected to grow from $10.5M in 2026 to $180M by 2029,
-              driven by repeat testing, AI licensing, and global market access.
-              With gross margins above 70%, this growth supports strong operating
-              leverage and long-term enterprise value.
-            </p>
-          </section>
-
-          {/* ── What Investors Say ── */}
-          <InvestorTestimonials />
-
-          {/* ── CTA ── */}
-          <section className="mb-14">
-            <div className="rounded-2xl overflow-hidden">
-              <Image
-                src="/images/invest-cta.jpg"
-                alt="Invest Us - Be part of the next chapter of Biostate. Multiomics, AI, Global Impact"
-                width={800}
-                height={400}
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="text-center mt-6">
-              <a
-                href="https://wefunder.com/biostateai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-brand text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-dark transition"
-              >
-                Reserve Now
-              </a>
-            </div>
-            <p className="text-lg font-bold mt-8 text-center">
-              Join us in creating a future where precision medicine works for
-              everyone.
-            </p>
-          </section>
-
-          {/* ── Mascot ── */}
-          <section className="mb-14">
-            <div className="rounded-2xl overflow-hidden">
-              <Image
-                src="/images/mascot-pio.png"
-                alt="Meet our mascot PIO - A limited-edition plush gifted to Biostate.AI investors"
-                width={800}
-                height={400}
-                className="w-full h-auto"
-              />
-            </div>
-          </section>
-
-          {/* ── Disclaimer ── */}
-          <section className="text-xs text-gray-text leading-relaxed border-t border-gray-border pt-6">
-            <p>
-              Biostate AI is testing the waters to evaluate investor interest. No
-              money or other consideration is being solicited; if sent, it will
-              not be accepted. No offer to buy securities will be accepted. No
-              part of the purchase price will be received until a Form C is filed
-              and, then, only through Wefunder. Any indication of interest has no
-              obligation or commitment of any kind.
-            </p>
           </section>
         </div>
 
@@ -619,5 +172,445 @@ export default function Home() {
         </div>
       </div>
     </main>
+  );
+}
+
+/* ────────────────────────────── OVERVIEW TAB CONTENT ────────────────────────────── */
+function OverviewContent() {
+  return (
+    <>
+      {/* ── Highlights ── */}
+      <section className="mb-14">
+        <h2 className="text-2xl font-bold text-brand mb-6">Highlights</h2>
+        <div className="space-y-5">
+          <Highlight
+            num={1}
+            text="$20M raised from leading VCs including Accel, Matter Venture Partners, InfoEdge Ventures, Vision Plus, and Caltech Fund."
+          />
+          <Highlight
+            num={2}
+            text="Repeat Founder: previously built $100M+ funded genomic platform with $21M revenue (2022)."
+          />
+          <Highlight
+            num={3}
+            text="20+ clinical collaborations with top hospitals including Harvard Med School, MD Anderson, Cornell… Accessing 100,000+ patient samples worldwide."
+          />
+          <Highlight
+            num={4}
+            text="Active clinical research programs in Leukemia, Melanoma, Lung cancer, Diabetes, Lupus, Multiple Sclerosis, and Coronary Artery Disease"
+          />
+        </div>
+      </section>
+
+      {/* ── Team (brief) ── */}
+      <section className="mb-14">
+        <h2 className="text-2xl font-bold mb-6">Team</h2>
+        <div className="space-y-6">
+          <TeamMember
+            name="Dave Zhang"
+            role="Co-Founder/CEO"
+            bio="Presidential award-winning bioengineering professor with 60+ top publications and 40+ patents. Previously co-founder & CEO of innovative cancer diagnostics company that raised over $100M+ from Sequoia and AstraZeneca and reached $20M+/yr revenue."
+          />
+          <TeamMember
+            name="Jeremy Sobotta"
+            role="CFO"
+            bio="Former CFO, Perimeter Medical Imaging AI (NASDAQ: PINK). Led $4B+ in M&A capital across biotech & medtech. 15+ years senior finance leadership at Stryker & Padagis."
+          />
+          <TeamMember
+            name="Kutapa Muthanna"
+            role="CEO, Bayosthiti.AI (India Subsidiary)"
+            bio="Former Director at KPMG; 20 years of finance and client relations leadership at KPMG and Fidelity Investments. Led global client tax and technology services."
+          />
+        </div>
+      </section>
+
+      <hr className="border-gray-border mb-12" />
+
+      {/* ── Why Biostate AI ── */}
+      <section className="mb-14">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-2 leading-tight">
+          Help 90% of people live to 90
+        </h2>
+        <h3 className="text-[22px] font-bold mb-6">Why Biostate AI?</h3>
+        <p className="text-[18px] leading-[1.8]">
+          Today, pharma companies spend billions of dollars and multiple years
+          to develop new drugs that benefit less than 20% of patients for each
+          hyper-narrow disease. At Biostate, we believe that with the power of
+          big data and modern AI, we can build a general purpose biomedical AI
+          that can help 90% of humanity live to 90 years old by understanding
+          and helping cure all diseases.
+        </p>
+      </section>
+
+      {/* ── A Worldwide Clinical Network ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/clinical-network.jpg"
+          alt="A Worldwide Clinical Network - logos of 30+ partner hospitals and universities"
+        />
+        <p className="text-[17px] leading-[1.8]">
+          Since its founding in 2023, Biostate has become a global
+          constellation of organizations spanning 4 countries. We have
+          established partnerships with dozens of leading hospitals including
+          Harvard Medical School, MD Anderson Cancer Center, Cornell Weill
+          Medical School, Peking Renmin Hospital (China), and Narayana Health
+          (India).
+        </p>
+      </section>
+
+      {/* ── 6 Diseases Focus ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/diseases-focus.jpg"
+          alt="6 Diseases Focus - Lung Cancer, Leukemia, Melanoma, Autoimmune Disease, Cardiovascular Disease, Diabetes"
+        />
+        <p className="text-[17px] leading-[1.8] mb-4">
+          Through these collaborations, we can obtain real-world clinical data
+          to train our predictive medical AI, N-act. Our active clinical
+          research programs initially focus on leukemia, lung cancer,
+          melanoma, diabetes, lupus, multiple sclerosis, and heart disease.
+        </p>
+        <p className="text-[17px] leading-[1.8]">
+          The N-act model helps identify early warning patterns that standard
+          tests often miss. These insights enable doctors to make earlier,
+          better-informed decisions and ultimately improve care for millions of
+          patients worldwide.
+        </p>
+      </section>
+
+      {/* ── Top-Tier Investor Backing ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/investor-backing.jpg"
+          alt="Top-Tier Investor Backing - Series A Lead Investor Accel, with logos of Scale, Etsy, DJI, Dropbox, Discord, Fiverr, Facebook, Spotify, Slack"
+        />
+        <p className="text-[17px] leading-[1.8]">
+          Biostate&apos;s Series A (2025) was led by Accel (Series A investors
+          in Facebook, Scale AI, Slack, and Discord), and Biostate&apos;s
+          earliest investors include Dario Amodei (co-founder/CEO of
+          Anthropic), Emily Leproust (co-founder/CEO of Twist Bioscience),
+          and the California Institute of Technology.
+        </p>
+      </section>
+
+      {/* ── Built On Real Gains ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/real-gains.jpg"
+          alt="Built On Real Gains - Significant Growth, Exceptional Returns, +169% Investor Gain Since 2023"
+        />
+        <p className="text-[17px] leading-[1.8]">
+          From its 2023 Seed round, Biostate&apos;s investors have seen up to
+          +169% gain on the value of their investments. These top investors
+          believe and support Biostate&apos;s vision of a future of healthy
+          living &ndash; will you join them?
+        </p>
+      </section>
+
+      {/* ── The World Is Losing Billions of Healthy Years ── */}
+      <section className="mb-14">
+        <h3 className="text-2xl font-bold mb-4">
+          The World Is Losing Billions of Healthy Years
+        </h3>
+        <p className="text-[17px] leading-[1.8] mb-6">
+          Today, the average global life expectancy is about 71 years (WHO).
+          Most people lose nearly two decades of healthy life not because
+          their diseases were incurable, but because doctor prescribe
+          treatment for the &ldquo;average&rdquo; patient instead of
+          specifically optimized for them. Precision medicine has the power to
+          change this, but it is currently accessible to less than 5% of the
+          world.
+        </p>
+
+        <SectionImage
+          src="/images/healthy-years-lost.jpg"
+          alt="20 Healthy Years Lost - The average global life expectancy is 71, bar chart showing healthy years vs disease years"
+        />
+
+        <p className="text-[17px] leading-[1.8] mb-6">
+          If we can find a way to extend healthy lifespan to 90, the impact
+          will be enormous: adding 19 extra healthy years to each of
+          Earth&apos;s 8 billion people creates a combined 150 billion healthy
+          years of life.
+        </p>
+
+        <SectionImage
+          src="/images/qaly.jpg"
+          alt="Each Quality-Adjusted Life Year (QALY) is worth $20,000-$100,000+"
+        />
+
+        <p className="text-[17px] font-bold mb-4">
+          This is why our mission matters.
+        </p>
+        <p className="text-[17px] leading-[1.8]">
+          Biostate has been working on the innovation of multiomics testing
+          and advanced AI technologies to achieve this mission, and allowing
+          your grandparents, your parents, and you to live longer and happier
+          without battling the specter of disease.
+        </p>
+      </section>
+
+      {/* ── Affordable Multiomics At Scale ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/multiomics-scale.jpg"
+          alt="Affordable Multiomics At Scale - Biostate's Sequencing Platform: less than $50 for 30,000 genes vs Traditional DNA/RNA Analysis: $3000+ for <500 genes"
+        />
+        <p className="text-[17px] leading-[1.8]">
+          DNA and RNA sequencing technologies used today were invented in a
+          different era and not intended to scale to millions of people.
+          Genetic tests like Foundation One for cancer have a price tag of
+          over $3000 to analyze 500 genes. We&apos;ve invented and deployed
+          technology to do genetic analysis for less than $50, and on 30,000
+          genes rather than 500. This uniquely allows us to scale data
+          collection to millions of patient samples, with proper informed
+          consent and physician support, in order to train powerful medical
+          AI.
+        </p>
+      </section>
+
+      {/* ── Ultra-Efficient RNAseq ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/rnaseq.jpg"
+          alt="Ultra-Efficient RNAseq - 10x Lower Cost, 10x Less Input, Any Sample"
+        />
+        <ul className="space-y-3 text-[17px] leading-[1.8] list-disc list-inside">
+          <li>10&times; lower cost than traditional RNA sequencing</li>
+          <li>
+            10&times; less input required: one FFPE curl or 1 mL of plasma
+            can uncover 30,000+ genes
+          </li>
+          <li>
+            Works on damaged, degraded, or ultra-small samples that normally
+            fail in standard pipelines
+          </li>
+        </ul>
+      </section>
+
+      {/* ── Ultra-Reliable DNAseq ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/dnaseq.jpg"
+          alt="Ultra-Reliable DNAseq - 8x Lower Cost, >95% Uniform Coverage, 260% GC-Rich Gain"
+        />
+        <ul className="space-y-3 text-[17px] leading-[1.8] list-disc list-inside">
+          <li>
+            8x lower cost than traditional DNA sequencing (Higher margin)
+          </li>
+          <li>
+            &gt;95% uniform coverage at 30&times; depth, high diagnostic
+            reliability
+          </li>
+          <li>
+            260% improvement in notoriously difficult GC-rich regions
+          </li>
+        </ul>
+      </section>
+
+      {/* ── State-Of-The-Art Scientist AI ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/k-dense-ai.jpg"
+          alt="State-Of-The-Art Scientist AI - K-Dense, outperforming ChatGPT, Gemini, and Deepseek by 60%"
+        />
+        <p className="text-[17px] leading-[1.8] mb-4">
+          Modern general-purpose AI models were not built to analyze
+          terabytes of human molecular data. DNA or RNA sequencing data from
+          a single person is usually 5000x larger than ChatGPT&apos;s working
+          memory (100,000 words). That&apos;s why we built K-Dense &ndash; an
+          autonomous AI scientist specializing in bio/medicine and
+          outperforming ChatGPT, Gemini, and Deepseek by 60%.
+        </p>
+        <p className="text-[17px] leading-[1.8]">
+          Working with Dr. David Sinclair, one of the world&apos;s leading
+          aging researchers, K-Dense helped build the most accurate model for
+          predicting biological age. In the process, K-Dense discovered four
+          new RNA biomarkers of aging, uncovering biology that had never been
+          documented before.
+        </p>
+      </section>
+
+      {/* ── Go to Market ── */}
+      <section className="mb-14">
+        <h3 className="text-2xl font-bold mb-4">Go to Market</h3>
+        <p className="text-[17px] font-semibold mb-2">
+          Our pricing is simple.
+        </p>
+        <p className="text-[17px] leading-[1.8] mb-6">
+          RNA tests cost $80 per sample. DNA tests cost $125 per sample.
+          Gross margins are above 70%.
+        </p>
+
+        <SectionImage
+          src="/images/market-10b.jpg"
+          alt=">$10B/year - U.S. cancer diagnostic testing market, >70% gross margins"
+        />
+
+        <p className="text-[17px] leading-[1.8]">
+          In the U.S. alone, cancer diagnostic testing represents a market of
+          over $70B, with more than $25B per year coming from repeat tests,
+          and this market continues to grow each year. This is only part of a
+          larger opportunity across many additional disease areas where
+          Biostate&apos;s technology can create substantial value.
+        </p>
+      </section>
+
+      {/* ── A Global Footprint ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/global-footprint.jpg"
+          alt="A Global Footprint - China 1.4B, India 1.4B, Saudi Arabia 1.8B - Billions of Patients, One Integrated Platform"
+        />
+        <p className="text-[17px] leading-[1.8] mb-4">
+          With operations across the United States, China, India, and the
+          Middle East, Biostate operates inside the world&apos;s
+          fastest-growing healthcare markets:
+        </p>
+        <ul className="space-y-3 text-[17px] leading-[1.8] list-disc list-inside">
+          <li>
+            <strong>China:</strong> 1.4B population; rapidly developing
+            pharmaceutical industry building new drugs
+          </li>
+          <li>
+            <strong>India:</strong> 1.4B population; world&apos;s greatest
+            manufacturer of affordable generic and biosimilar drugs
+          </li>
+          <li>
+            <strong>Saudi Arabia:</strong> Spiritual center of the 1.8B
+            Muslim world with over 100 million worldwide pilgrims per year;
+            strong government initiatives and incentives to modernize health
+            through Vision 2030.
+          </li>
+        </ul>
+        <p className="text-[17px] leading-[1.8] mt-4 font-semibold">
+          No other precision-medicine company combines global wet labs, AI
+          platforms, and multiomic pipelines across these regions like us.
+        </p>
+      </section>
+
+      {/* ── Our Leadership Team ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/leadership-team.jpg"
+          alt="Our Leadership Team - David Zhang Ph.D. Co-Founder & CEO, Jeremy Sobotta CFO, and Senior Leadership"
+        />
+        <p className="text-[17px] leading-[1.8]">
+          Our leadership team combines deep scientific expertise, proven
+          company-building experience, and global operational leadership. Led
+          by a repeat founder with a strong track record in molecular
+          diagnostics and supported by seasoned financial and technical
+          executives, the team brings together strengths across biotech, AI,
+          and international markets&mdash;positioning Biostate.ai to execute
+          at scale and translate cutting-edge science into real-world impact.
+        </p>
+      </section>
+
+      {/* ── Guided By Global Experts ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/global-experts.jpg"
+          alt="Guided By Global Experts - Advisory board of world-class clinicians, researchers, and innovators"
+        />
+        <p className="text-[17px] leading-[1.8]">
+          This advisory board brings together world-class clinicians,
+          researchers, and innovators from leading institutions to guide and
+          support Biostate.ai&apos;s mission. Backed by expertise across
+          genomics, cancer, cardiovascular, autoimmune, and rare diseases,
+          these advisors provide critical scientific, clinical, and strategic
+          insight&mdash;ensuring our technology is credible, clinically
+          relevant, and built to scale real-world impact.
+        </p>
+      </section>
+
+      {/* ── Who's Building With Us ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/investors-grid.jpg"
+          alt="Who's Building With Us - Institutional Investors: Accel, Matter Venture Partners, Vision Plus Capital, Catapult VC, InfoEdge Ventures, Caltech Fund. Individual Investors: Prasad Chintamaneni, Dario Amodei, Mike Schnall-Levin, Emily Leproust, Joris Poort, Arpan Sheth"
+        />
+      </section>
+
+      {/* ── Multi-Engine Revenue Growth ── */}
+      <section className="mb-14">
+        <h3 className="text-2xl font-bold mb-4">
+          Multi-Engine Revenue Growth
+        </h3>
+        <p className="text-[17px] leading-[1.8] mb-6">
+          Biostate AI is scaling through multiple high-margin growth engines:
+          U.S. clinical diagnostics, proprietary AI software (K-Dense), and
+          expansion across India, China, and the Middle East.
+        </p>
+      </section>
+
+      {/* ── Financial Projections ── */}
+      <section className="mb-14">
+        <SectionImage
+          src="/images/financial-projections.jpg"
+          alt="Financial Projections (2026-2029) - Revenue projected to grow from $10.5M in 2026 to $180M by 2029"
+        />
+        <p className="text-[17px] leading-[1.8]">
+          Revenue is projected to grow from $10.5M in 2026 to $180M by 2029,
+          driven by repeat testing, AI licensing, and global market access.
+          With gross margins above 70%, this growth supports strong operating
+          leverage and long-term enterprise value.
+        </p>
+      </section>
+
+      {/* ── What Investors Say ── */}
+      <InvestorTestimonials />
+
+      {/* ── CTA ── */}
+      <section className="mb-14">
+        <div className="rounded-2xl overflow-hidden">
+          <Image
+            src="/images/invest-cta.jpg"
+            alt="Invest Us - Be part of the next chapter of Biostate. Multiomics, AI, Global Impact"
+            width={800}
+            height={400}
+            className="w-full h-auto"
+          />
+        </div>
+        <div className="text-center mt-6">
+          <a
+            href="https://wefunder.com/biostateai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-brand text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-dark transition"
+          >
+            Reserve Now
+          </a>
+        </div>
+        <p className="text-lg font-bold mt-8 text-center">
+          Join us in creating a future where precision medicine works for
+          everyone.
+        </p>
+      </section>
+
+      {/* ── Mascot ── */}
+      <section className="mb-14">
+        <div className="rounded-2xl overflow-hidden">
+          <Image
+            src="/images/mascot-pio.png"
+            alt="Meet our mascot PIO - A limited-edition plush gifted to Biostate.AI investors"
+            width={800}
+            height={400}
+            className="w-full h-auto"
+          />
+        </div>
+      </section>
+
+      {/* ── Disclaimer ── */}
+      <section className="text-xs text-gray-text leading-relaxed border-t border-gray-border pt-6">
+        <p>
+          Biostate AI is testing the waters to evaluate investor interest. No
+          money or other consideration is being solicited; if sent, it will
+          not be accepted. No offer to buy securities will be accepted. No
+          part of the purchase price will be received until a Form C is filed
+          and, then, only through Wefunder. Any indication of interest has no
+          obligation or commitment of any kind.
+        </p>
+      </section>
+    </>
   );
 }
