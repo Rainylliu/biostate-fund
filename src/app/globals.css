@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #2ec4a5;
+  --color-brand-dark: #25a78c;
+  --color-brand-light: #e6f9f4;
+  --color-dark: #1a202c;
+  --color-gray-text: #6b7280;
+  --color-gray-light: #f7f8fa;
+  --color-gray-border: #e5e7eb;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Section heading green left bar */
+.section-heading {
+  position: relative;
+  padding-left: 18px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-brand);
+}
+.section-heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-brand);
+  border-radius: 2px;
+}
+
+/* Highlight number circles */
+.highlight-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* Stat card */
+.stat-card {
+  background: linear-gradient(135deg, #2ec4a5 0%, #1a9e82 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Feature card with teal gradient */
+.feature-card {
+  background: linear-gradient(135deg, #2ec4a5 0%, #1a9e82 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 0.9rem;
+}
+
+/* Sticky sidebar */
+.invest-sidebar {
+  position: sticky;
+  top: 24px;
+}
+
+/* Logo grid */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Team member avatar */
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-brand);
+}
+
+.avatar-sm {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-brand);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--color-brand);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
