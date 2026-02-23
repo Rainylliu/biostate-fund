@@ -4,6 +4,7 @@ import InvestorTestimonials from "@/components/InvestorTestimonials";
 import PageTabs from "@/components/PageTabs";
 import InvestorSayTab from "@/components/InvestorSayTab";
 import Highlights from "@/components/Highlights";
+import InvestButton from "@/components/InvestButton";
 
 /* ─── Section image: full-width image from Wefunder screenshots ─── */
 function SectionImage({
@@ -157,14 +158,9 @@ export default function Home() {
             <p className="font-bold text-lg">$505,100</p>
             <p className="text-xs text-gray-text">of $600,000 goal</p>
           </div>
-          <a
-            href="https://wefunder.com/biostateai/invest?invite_code=onjSjCCss8"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-brand text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-dark transition"
-          >
+          <InvestButton className="bg-brand text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-dark transition">
             INVEST
-          </a>
+          </InvestButton>
         </div>
       </div>
     </main>
@@ -548,14 +544,9 @@ function OverviewContent() {
           />
         </div>
         <div className="text-center mt-6">
-          <a
-            href="https://wefunder.com/biostateai/invest?invite_code=onjSjCCss8"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-brand text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-dark transition"
-          >
+          <InvestButton className="inline-block bg-brand text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-dark transition">
             Invest Now
-          </a>
+          </InvestButton>
         </div>
         <p className="text-lg font-bold mt-8 text-center">
           Join us in creating a future where precision medicine works for

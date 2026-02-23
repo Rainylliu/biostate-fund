@@ -46,6 +46,11 @@ export default function InvestSidebar() {
         href="https://wefunder.com/biostateai/invest?invite_code=onjSjCCss8"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => {
+          if (typeof window !== "undefined" && typeof window.fbq === "function") {
+            window.fbq("trackCustom", "InvestClick");
+          }
+        }}
         className="block w-full bg-dark text-white text-center font-bold py-3.5 rounded-lg hover:bg-gray-800 transition text-[15px] tracking-wide"
       >
         INVEST
