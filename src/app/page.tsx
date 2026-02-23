@@ -3,6 +3,7 @@ import InvestSidebar from "@/components/InvestSidebar";
 import InvestorTestimonials from "@/components/InvestorTestimonials";
 import PageTabs from "@/components/PageTabs";
 import InvestorSayTab from "@/components/InvestorSayTab";
+import Highlights from "@/components/Highlights";
 
 /* ─── Section image: full-width image from Wefunder screenshots ─── */
 function SectionImage({
@@ -175,27 +176,7 @@ function OverviewContent() {
   return (
     <>
       {/* ── Highlights ── */}
-      <section className="mb-14">
-        <h2 className="text-2xl font-bold text-brand mb-6">Highlights</h2>
-        <div className="space-y-5">
-          <Highlight
-            num={1}
-            text="$20M raised from leading VCs including Accel, Matter Venture Partners, InfoEdge Ventures, Vision Plus, and Caltech Fund."
-          />
-          <Highlight
-            num={2}
-            text="Repeat Founder: previously built $100M+ funded genomic platform with $21M revenue (2022)."
-          />
-          <Highlight
-            num={3}
-            text="20+ clinical collaborations with top hospitals including Harvard Med School, MD Anderson, Cornell… Accessing 100,000+ patient samples worldwide."
-          />
-          <Highlight
-            num={4}
-            text="Active clinical research programs in Leukemia, Melanoma, Lung cancer, Diabetes, Lupus, Multiple Sclerosis, and Coronary Artery Disease"
-          />
-        </div>
-      </section>
+      <Highlights />
 
       {/* ── Team (brief) ── */}
       <section className="mb-14">
