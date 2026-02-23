@@ -19,14 +19,13 @@ export default function InvestSidebar() {
       <div className="mb-6">
         <p className="text-[40px] font-extrabold text-dark leading-tight tracking-tight">
           ${raised.toLocaleString()}
-          <span className="inline-block ml-1 w-4 h-4 rounded-full border border-gray-300 text-[10px] text-gray-400 text-center leading-[14px] cursor-help">i</span>
         </p>
         <p className="text-[15px] text-gray-text mt-1">of a ${goal.toLocaleString()} goal</p>
       </div>
 
-      {/* Reserve section */}
+      {/* Invest section */}
       <div className="mb-4">
-        <p className="text-[15px] font-bold text-dark mb-2 uppercase tracking-wide">Reserve</p>
+        <p className="text-[15px] font-bold text-dark mb-2 uppercase tracking-wide">Invest</p>
         <div className="flex items-center gap-2">
           <div className="flex items-center border border-gray-border rounded-lg px-3 py-2.5 flex-1">
             <span className="text-gray-text text-[15px] mr-1">$</span>
@@ -42,21 +41,25 @@ export default function InvestSidebar() {
         <p className="text-xs text-gray-text mt-1">min $100</p>
       </div>
 
-      {/* Reserve button - black like Wefunder */}
+      {/* Invest button - black like Wefunder */}
       <a
-        href="https://wefunder.com/biostateai/"
+        href="https://wefunder.com/biostateai/invest?invite_code=onjSjCCss8"
         target="_blank"
         rel="noopener noreferrer"
         className="block w-full bg-dark text-white text-center font-bold py-3.5 rounded-lg hover:bg-gray-800 transition text-[15px] tracking-wide"
       >
-        RESERVE
+        INVEST
       </a>
 
-      {/* Following button */}
-      <button className="w-full mt-3 border-2 border-dark text-dark text-center font-bold py-3 rounded-lg hover:bg-gray-50 transition text-[14px] tracking-wide flex items-center justify-center gap-2">
-        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5h2v14H5V5zm12 0v14l-8-7 8-7z" transform="rotate(180 12 12)"/></svg>
-        FOLLOWING
-      </button>
+      {/* Follow on Wefunder button */}
+      <a
+        href="https://wefunder.com/biostateai/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full mt-3 border-2 border-dark text-dark text-center font-bold py-3 rounded-lg hover:bg-gray-50 transition text-[14px] tracking-wide flex items-center justify-center gap-2"
+      >
+        FOLLOW ON WEFUNDER
+      </a>
 
       {/* Investment Terms */}
       <div className="mt-6 pt-5 border-t border-gray-border">

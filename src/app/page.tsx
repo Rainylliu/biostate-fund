@@ -162,12 +162,12 @@ export default function Home() {
             <p className="text-xs text-gray-text">of $600,000 goal</p>
           </div>
           <a
-            href="https://wefunder.com/biostateai/"
+            href="https://wefunder.com/biostateai/invest?invite_code=onjSjCCss8"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-brand text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-dark transition"
           >
-            RESERVE
+            INVEST
           </a>
         </div>
       </div>
@@ -573,12 +573,12 @@ function OverviewContent() {
         </div>
         <div className="text-center mt-6">
           <a
-            href="https://wefunder.com/biostateai/"
+            href="https://wefunder.com/biostateai/invest?invite_code=onjSjCCss8"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-brand text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-dark transition"
           >
-            Reserve Now
+            Invest Now
           </a>
         </div>
         <p className="text-lg font-bold mt-8 text-center">
