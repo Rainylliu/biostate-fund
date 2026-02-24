@@ -68,7 +68,7 @@ export default function InvestSidebar() {
           </div>
           <div className="relative">
             <div
-              className="flex items-center border-2 border-gray-border rounded-xl px-3 cursor-pointer bg-white hover:border-gray-400 transition w-[160px] h-[60px]"
+              className="flex items-center border-2 border-gray-border rounded-xl pl-3 pr-2 cursor-pointer bg-white hover:border-gray-400 transition w-[160px] h-[60px]"
               onClick={() => setPopupOpen(true)}
             >
               <span className="text-gray-400 text-[18px] font-light mr-1 opacity-85">$</span>
@@ -78,7 +78,7 @@ export default function InvestSidebar() {
                 placeholder="0"
                 value={amount}
                 onChange={handleAmountChange}
-                className="flex-1 text-[18px] focus:outline-none bg-transparent text-right tabular-nums text-dark"
+                className="flex-1 text-[18px] focus:outline-none bg-transparent text-right tabular-nums text-dark pr-0"
               />
             </div>
 
