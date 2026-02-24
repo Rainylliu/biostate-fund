@@ -66,9 +66,9 @@ export default function InvestSidebar() {
             <p className="text-[14px] font-bold text-dark uppercase tracking-wide">Invest</p>
             <p className="text-xs text-gray-text mt-0.5">min $100</p>
           </div>
-          <div className="relative flex-1">
+          <div className="relative">
             <div
-              className="flex items-center border-2 border-gray-border rounded-xl px-3 py-2.5 cursor-pointer bg-white hover:border-gray-400 transition"
+              className="flex items-center border-2 border-gray-border rounded-xl px-3 cursor-pointer bg-white hover:border-gray-400 transition w-[160px] h-[60px]"
               onClick={() => setPopupOpen(true)}
             >
               <span className="text-gray-400 text-[18px] font-light mr-1 opacity-85">$</span>
