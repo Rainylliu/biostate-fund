@@ -59,10 +59,10 @@ export default function Home() {
 
       {/* ── Hero title (full width, above two-column layout) ── */}
       <div className="mb-6">
-        <p className="text-xs font-semibold text-gray-text uppercase tracking-widest mb-2">
+        <p className="text-base font-semibold text-gray-text uppercase tracking-widest mb-2">
           BIOSTATE AI
         </p>
-        <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight">
+        <h1 className="text-3xl sm:text-4xl font-medium leading-tight">
           Help 90% of people live to 90
         </h1>
       </div>
