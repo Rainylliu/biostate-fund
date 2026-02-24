@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function InvestSidebar() {
   const [amount, setAmount] = useState("");
@@ -18,7 +19,7 @@ export default function InvestSidebar() {
 
       {/* Amount raised */}
       <div className="mb-4">
-        <p className="text-[28px] font-medium text-dark leading-tight tracking-tight">
+        <p className="text-[32px] font-medium text-dark leading-tight tracking-tight">
           ${raised.toLocaleString()}
         </p>
         <p className="text-[14px] text-gray-text mt-1">of a ${goal.toLocaleString()} goal</p>
@@ -102,7 +103,7 @@ export default function InvestSidebar() {
         )}
         <div className="mt-3 pt-3 border-t border-gray-border">
           <p className="text-[14px] text-gray-text">
-            <span className="mr-1">🎁</span>
+            <Image src="/images/gift-box.svg" alt="gift" width={16} height={16} className="inline-block mr-1 align-text-bottom" />
             <span className="font-semibold">Investor Perks:</span> $200, $500, $1K, $5K, $10K, $35K, $100K
           </p>
         </div>
