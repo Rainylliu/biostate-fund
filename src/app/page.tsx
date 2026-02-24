@@ -159,7 +159,7 @@ function OverviewContent() {
 
       {/* ── Why Biostate AI ── */}
       <section className="mb-14">
-        <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 leading-tight">
+        <h1 className="text-[30px] font-bold leading-tight text-[#16263d] mb-2">
           Help 90% of people live to 90
         </h1>
         <h3 className="text-[22px] font-bold mb-6">Why Biostate AI?</h3>
