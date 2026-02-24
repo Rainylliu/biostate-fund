@@ -103,7 +103,7 @@ export default function InvestSidebar() {
               {!perksExpanded && (
                 <button
                   type="button"
-                  onClick={() => setPerksExpanded(true)}
+                  onClick={(e) => { e.stopPropagation(); setPerksExpanded(true); }}
                   className="mt-1 text-[13px] font-semibold text-brand hover:text-brand-dark transition cursor-pointer"
                 >
                   Show more
