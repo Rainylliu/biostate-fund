@@ -59,7 +59,7 @@ export default function Home() {
 
       {/* ── Hero title (full width, above two-column layout) ── */}
       <div className="mb-6">
-        <p className="text-[13px] font-semibold text-[#8b97a7] uppercase tracking-[0.2em] mb-4">
+        <p className="text-[32px] font-semibold text-[#8b97a7] uppercase tracking-[0.2em] mb-4">
           BIOSTATE AI
         </p>
         <h1 className="text-[2.25rem] sm:text-[2.5rem] font-bold leading-tight text-[#16263d]">
