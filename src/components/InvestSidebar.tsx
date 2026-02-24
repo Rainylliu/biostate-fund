@@ -61,8 +61,11 @@ export default function InvestSidebar() {
 
       {/* Invest section */}
       <div className="mb-3" ref={wrapperRef}>
-        <div className="flex items-center gap-3">
-          <p className="text-[14px] font-bold text-dark uppercase tracking-wide whitespace-nowrap">Invest</p>
+        <div className="flex items-start gap-3">
+          <div className="pt-2">
+            <p className="text-[14px] font-bold text-dark uppercase tracking-wide">Invest</p>
+            <p className="text-xs text-gray-text mt-0.5">min $100</p>
+          </div>
           <div className="relative flex-1">
             <div
               className="flex items-center border-2 border-gray-border rounded-xl px-3 py-2.5 cursor-pointer bg-white hover:border-gray-400 transition"
@@ -101,7 +104,6 @@ export default function InvestSidebar() {
               </div>
             )}
           </div>
-          <p className="text-xs text-gray-text whitespace-nowrap">min $100</p>
         </div>
       </div>
 
