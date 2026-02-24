@@ -20,11 +20,13 @@ export default function Highlights() {
   return (
     <section className="mb-14">
       <h2 className="text-[1.875rem] font-medium leading-[2.25rem] text-[#16263d] mt-16 mb-8">Highlights</h2>
-      <div className="space-y-5">
+      <div className="space-y-4">
         {visible.map((text, i) => (
-          <div key={i} className="flex gap-4 items-start">
-            <div className="highlight-num">{i + 1}</div>
-            <p className="text-base leading-relaxed">{text}</p>
+          <div key={i} className="flex items-center gap-4">
+            <div className="w-8 h-8 rounded-full border-2 border-[#adb9c9] flex-shrink-0 flex items-center justify-center text-[13px] font-semibold text-[#16263d]">
+              {i + 1}
+            </div>
+            <p className="text-[16px] leading-[1.6] text-[#16263d]">{text}</p>
           </div>
         ))}
       </div>
