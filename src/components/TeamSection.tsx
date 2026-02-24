@@ -88,7 +88,7 @@ export default function TeamSection() {
       {!expanded && teamMembers.length > INITIAL_COUNT && (
         <button
           onClick={() => setExpanded(true)}
-          className="mt-5 px-5 py-2 border border-gray-border rounded-lg text-[14px] font-medium text-dark hover:bg-gray-50 transition"
+          className="mt-10 px-5 py-2 border border-gray-border rounded-lg text-[14px] font-medium text-dark hover:bg-gray-50 transition"
         >
           Show More
         </button>
