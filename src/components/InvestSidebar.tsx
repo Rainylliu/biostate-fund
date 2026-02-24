@@ -61,7 +61,7 @@ export default function InvestSidebar() {
 
       {/* Invest section */}
       <div className="mb-3" ref={wrapperRef}>
-        <div className="flex items-start gap-3">
+        <div className="flex items-start justify-between">
           <div className="pt-2">
             <p className="text-[14px] font-bold text-dark uppercase tracking-wide">Invest</p>
             <p className="text-xs text-gray-text mt-0.5">min $100</p>
