@@ -132,8 +132,8 @@ export default function Home() {
       {/* ── Mobile fixed bottom CTA ── */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-border p-4 lg:hidden z-50">
         <div className="flex items-center justify-between max-w-lg mx-auto">
-          <div>
-            <p className="font-bold text-[36px]">$505,100</p>
+          <div className="flex items-baseline gap-2">
+            <p className="font-bold text-[20px]">$505,100</p>
             <p className="text-xs text-gray-text">of $600,000 goal</p>
           </div>
           <InvestButton className="bg-brand text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-dark transition">
