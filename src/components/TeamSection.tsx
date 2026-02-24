@@ -74,7 +74,7 @@ export default function TeamSection() {
 
   return (
     <section className="mb-14">
-      <h2 className="text-2xl font-bold mb-6">Team</h2>
+      <h2 className="text-2xl font-bold text-brand mb-6">Team</h2>
       <div className="space-y-6">
         {visibleMembers.map((member) => (
           <TeamMember
