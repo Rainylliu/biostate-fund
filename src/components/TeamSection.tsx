@@ -22,7 +22,7 @@ function TeamMember({
         alt={name}
         width={80}
         height={80}
-        className="w-20 h-20 rounded-full flex-shrink-0 border-3 border-brand object-cover"
+        className="w-20 h-20 rounded-full flex-shrink-0 object-cover"
       />
       <div>
         <p className="font-bold text-lg">{name}</p>
@@ -89,7 +89,7 @@ export default function TeamSection() {
       {!expanded && teamMembers.length > INITIAL_COUNT && (
         <button
           onClick={() => setExpanded(true)}
-          className="mt-5 px-5 py-2 rounded-lg text-[14px] font-medium text-dark hover:bg-gray-50 transition"
+          className="mt-5 px-5 py-2 border border-gray-border rounded-lg text-[14px] font-medium text-dark hover:bg-gray-50 transition"
         >
           Show More
         </button>
