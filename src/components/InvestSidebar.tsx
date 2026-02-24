@@ -1,11 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 export default function InvestSidebar() {
   const [amount, setAmount] = useState("");
   const [termsOpen, setTermsOpen] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const perks = [
+    { amount: 200, label: "$200", desc: "Biostate T-shirt" },
+    { amount: 500, label: "$500", desc: "Biostate Pio mascot (2026)" },
+    { amount: 1000, label: "$1,000", desc: "Pio mascot + T-shirt + Hoodie" },
+    { amount: 5000, label: "$5,000", desc: "Premium Biostate Swag Pack" },
+    { amount: 10000, label: "$10,000", desc: "Personal RNAseq & DNAseq Test + Swag Pack" },
+  ];
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setPopupOpen(false);
+      }
+    }
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  function handleAmountChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const raw = e.target.value.replace(/[^0-9]/g, "");
+    if (!raw) { setAmount(""); return; }
+    setAmount(Number(raw).toLocaleString());
+  }
+
+  function selectPerk(val: number) {
+    setAmount(val.toLocaleString());
+    setPopupOpen(false);
+  }
+
   const raised = 505100;
   const goal = 600000;
   const pct = Math.min((raised / goal) * 100, 100);
@@ -26,19 +58,45 @@ export default function InvestSidebar() {
       </div>
 
       {/* Invest section */}
-      <div className="mb-3">
+      <div className="mb-3" ref={wrapperRef}>
         <p className="text-[14px] font-bold text-dark mb-1.5 uppercase tracking-wide">Invest</p>
-        <div className="flex items-center gap-2">
-          <div className="flex items-center border border-gray-border rounded-lg px-3 py-2.5 flex-1">
-            <span className="text-gray-text text-[14px] mr-1">$</span>
+        <div className="relative">
+          <div
+            className="flex items-center border-2 border-gray-border rounded-xl px-3 py-2.5 cursor-pointer bg-white hover:border-gray-400 transition"
+            onClick={() => setPopupOpen(true)}
+          >
+            <span className="text-gray-400 text-[18px] font-light mr-1 opacity-85">$</span>
             <input
-              type="number"
+              type="text"
+              inputMode="numeric"
               placeholder="0"
               value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="flex-1 text-[14px] focus:outline-none bg-transparent"
+              onChange={handleAmountChange}
+              className="flex-1 text-[18px] focus:outline-none bg-transparent text-right tabular-nums text-dark"
             />
           </div>
+
+          {/* Perks popup - left side */}
+          {popupOpen && (
+            <div className="absolute top-[calc(100%+8px)] right-full mr-3 w-[380px] bg-[#f9fafb] rounded-[14px] p-6 shadow-[0_25px_60px_rgba(0,0,0,0.15)] z-50">
+              <div className="flex items-center gap-2 mb-5">
+                <Image src="/images/gift-box.svg" alt="gift" width={26} height={26} />
+                <span className="text-[22px] font-semibold text-dark">Earn perks when you invest</span>
+              </div>
+              {perks.map((perk) => (
+                <div
+                  key={perk.amount}
+                  className="mb-2.5 cursor-pointer group"
+                  onClick={() => selectPerk(perk.amount)}
+                >
+                  <span className="inline-block bg-[#2e2e2e] group-hover:bg-brand text-white font-semibold px-3 py-1.5 rounded-lg text-[14px] transition">
+                    {perk.label}
+                  </span>
+                  <p className="text-[16px] text-[#344054] mt-1.5">{perk.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <p className="text-xs text-gray-text mt-1">min $100</p>
       </div>
