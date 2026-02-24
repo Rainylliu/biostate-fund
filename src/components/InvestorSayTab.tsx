@@ -313,9 +313,9 @@ export default function InvestorSayTab() {
       {!showAll && testimonials.length > 8 && (
         <button
           onClick={() => setShowAll(true)}
-          className="mt-6 px-6 py-2 border-2 border-brand text-brand font-semibold text-[14px] rounded-lg hover:bg-brand hover:text-white transition uppercase tracking-wider"
+          className="mt-6 px-5 py-2 border border-gray-300 text-dark font-semibold text-[14px] rounded-full hover:bg-gray-50 transition"
         >
-          Show All {testimonials.length} Reviews
+          Show more
         </button>
       )}
     </div>
