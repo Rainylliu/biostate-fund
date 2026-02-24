@@ -23,7 +23,7 @@ export default function PageTabs({
           onClick={() => setActiveTab("overview")}
           className={`pb-4 -mb-[17px] cursor-pointer transition ${
             activeTab === "overview"
-              ? "text-dark border-b-2 border-dark"
+              ? "text-dark border-b-2 border-[#3077b8]"
               : "text-gray-text hover:text-dark"
           }`}
         >
@@ -39,7 +39,7 @@ export default function PageTabs({
           onClick={() => setActiveTab("investors")}
           className={`pb-4 -mb-[17px] cursor-pointer transition ${
             activeTab === "investors"
-              ? "text-dark border-b-2 border-dark"
+              ? "text-dark border-b-2 border-[#3077b8]"
               : "text-gray-text hover:text-dark"
           }`}
         >

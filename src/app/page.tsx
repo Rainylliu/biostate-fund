@@ -113,7 +113,7 @@ export default function Home() {
             </div>
 
             {/* Divider between video area and tabs */}
-            <hr className="border-[#8B97A7] mb-6" />
+            <hr className="border-[#eff2f7] mb-6" />
 
             {/* Tabs + Tab Content */}
             <PageTabs
