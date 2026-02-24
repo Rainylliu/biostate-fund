@@ -117,7 +117,7 @@ body {
 }
 .progress-bar-fill {
   height: 100%;
-  background: #3daa4b;
+  background: #3ECAB1;
   border-radius: 3px;
   transition: width 1s ease;
 }
