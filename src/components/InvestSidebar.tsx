@@ -52,11 +52,11 @@ export default function InvestSidebar() {
       </div>
 
       {/* Amount raised */}
-      <div className="mb-4 flex items-baseline justify-between">
-        <p className="text-[36px] font-medium text-dark leading-tight tracking-tight">
+      <div className="mb-4 flex items-baseline gap-2 flex-nowrap">
+        <p className="text-[28px] font-medium text-dark leading-tight tracking-tight whitespace-nowrap">
           ${raised.toLocaleString()}
         </p>
-        <p className="text-[14px] text-gray-text">of a ${goal.toLocaleString()} goal</p>
+        <p className="text-[14px] text-gray-text whitespace-nowrap">of a ${goal.toLocaleString()} goal</p>
       </div>
 
       {/* Invest section */}
