@@ -86,12 +86,12 @@ export default function TeamSection() {
           />
         ))}
       </div>
-      {teamMembers.length > INITIAL_COUNT && (
+      {!expanded && teamMembers.length > INITIAL_COUNT && (
         <button
-          onClick={() => setExpanded(!expanded)}
-          className="mt-5 px-5 py-2 border border-gray-border rounded-lg text-[14px] font-medium text-dark hover:bg-gray-50 transition"
+          onClick={() => setExpanded(true)}
+          className="mt-5 px-5 py-2 rounded-lg text-[14px] font-medium text-dark hover:bg-gray-50 transition"
         >
-          {expanded ? "Show Less" : `Show More (${teamMembers.length - INITIAL_COUNT})`}
+          Show More
         </button>
       )}
     </section>
