@@ -18,7 +18,7 @@ export default function PageTabs({
   return (
     <>
       {/* Tabs */}
-      <div className="flex gap-8 border-b border-gray-border pb-4 mb-10 text-[13px] font-semibold uppercase tracking-wider">
+      <div className="flex gap-8 pb-4 mb-10 text-[13px] font-semibold uppercase tracking-wider">
         <button
           onClick={() => setActiveTab("overview")}
           className={`pb-4 -mb-[17px] cursor-pointer transition ${
