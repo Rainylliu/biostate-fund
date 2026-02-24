@@ -16,6 +16,8 @@ export default function InvestSidebar() {
     { amount: 1000, label: "$1,000", desc: "Pio mascot + T-shirt + Hoodie" },
     { amount: 5000, label: "$5,000", desc: "Premium Biostate Swag Pack" },
     { amount: 10000, label: "$10,000", desc: "Personal RNAseq & DNAseq Test + Swag Pack" },
+    { amount: 35000, label: "$35,000", desc: "VIP Lab Tour + Full Swag Pack" },
+    { amount: 100000, label: "$100,000", desc: "Advisory Dinner with CEO + VIP Package" },
   ];
 
   useEffect(() => {
@@ -86,7 +88,7 @@ export default function InvestSidebar() {
                 <Image src="/images/gift-box.svg" alt="gift" width={20} height={20} />
                 <span className="text-[16px] font-semibold text-dark">Earn perks when you invest</span>
               </div>
-              {(perksExpanded ? perks : perks.slice(0, 3)).map((perk) => (
+              {(perksExpanded ? perks : perks.slice(0, 5)).map((perk) => (
                 <div
                   key={perk.amount}
                   className="mb-2 cursor-pointer group"
