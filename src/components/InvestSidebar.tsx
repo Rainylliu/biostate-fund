@@ -7,7 +7,6 @@ export default function InvestSidebar() {
   const [amount, setAmount] = useState("");
   const [termsOpen, setTermsOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
-  const [perksExpanded, setPerksExpanded] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const perks = [
@@ -24,7 +23,6 @@ export default function InvestSidebar() {
     function handleClickOutside(e: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setPopupOpen(false);
-        setPerksExpanded(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -40,7 +38,6 @@ export default function InvestSidebar() {
   function selectPerk(val: number) {
     setAmount(val.toLocaleString());
     setPopupOpen(false);
-    setPerksExpanded(false);
   }
 
   const raised = 505100;
@@ -88,7 +85,7 @@ export default function InvestSidebar() {
                 <Image src="/images/gift-box.svg" alt="gift" width={20} height={20} />
                 <span className="text-[16px] font-semibold text-dark">Earn perks when you invest</span>
               </div>
-              {(perksExpanded ? perks : perks.slice(0, 5)).map((perk) => (
+              {perks.map((perk) => (
                 <div
                   key={perk.amount}
                   className="mb-2 cursor-pointer group"
@@ -100,15 +97,6 @@ export default function InvestSidebar() {
                   <p className="text-[14px] text-[#344054] mt-1">{perk.desc}</p>
                 </div>
               ))}
-              {!perksExpanded && (
-                <button
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); setPerksExpanded(true); }}
-                  className="mt-1 text-[13px] font-semibold text-brand hover:text-brand-dark transition cursor-pointer"
-                >
-                  Show more
-                </button>
-              )}
             </div>
           )}
         </div>
