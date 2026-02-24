@@ -27,13 +27,13 @@ export default function PageTabs({
               : "text-gray-text hover:text-dark"
           }`}
         >
-          Overview
+          OVERVIEW
         </button>
         <button
           className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px] transition"
           disabled
         >
-          Posts
+          POSTS
         </button>
         <button
           onClick={() => setActiveTab("investors")}
@@ -43,7 +43,7 @@ export default function PageTabs({
               : "text-gray-text hover:text-dark"
           }`}
         >
-          What Investors Say{" "}
+          WHAT INVESTORS SAY{" "}
           <span className="inline-flex items-center justify-center bg-brand text-white text-[11px] font-bold rounded-full w-5 h-5 ml-1">
             36
           </span>
@@ -54,7 +54,7 @@ export default function PageTabs({
           rel="noopener noreferrer"
           className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px] transition"
         >
-          Ask A Question on Wefunder{" "}
+          ASK A QUESTION ON WEFUNDER{" "}
           <span className="inline-flex items-center justify-center bg-gray-200 text-gray-text text-[11px] font-bold rounded-full w-5 h-5 ml-1">
             10
           </span>
