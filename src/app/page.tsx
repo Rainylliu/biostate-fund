@@ -159,9 +159,9 @@ function OverviewContent() {
 
       {/* ── Why Biostate AI ── */}
       <section className="mb-14">
-        <h2 className="text-3xl sm:text-4xl font-extrabold mb-2 leading-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 leading-tight">
           Help 90% of people live to 90
-        </h2>
+        </h1>
         <h3 className="text-[22px] font-bold mb-6">Why Biostate AI?</h3>
         <p className="text-[18px] leading-[1.8]">
           Today, pharma companies spend billions of dollars and multiple years
