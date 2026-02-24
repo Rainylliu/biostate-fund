@@ -7,6 +7,7 @@ export default function InvestSidebar() {
   const [amount, setAmount] = useState("");
   const [termsOpen, setTermsOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
+  const [perksExpanded, setPerksExpanded] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const perks = [
@@ -21,6 +22,7 @@ export default function InvestSidebar() {
     function handleClickOutside(e: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setPopupOpen(false);
+        setPerksExpanded(false);
       }
     }
     document.addEventListener("click", handleClickOutside);
@@ -36,6 +38,7 @@ export default function InvestSidebar() {
   function selectPerk(val: number) {
     setAmount(val.toLocaleString());
     setPopupOpen(false);
+    setPerksExpanded(false);
   }
 
   const raised = 505100;
@@ -78,23 +81,32 @@ export default function InvestSidebar() {
 
           {/* Perks popup - left side */}
           {popupOpen && (
-            <div className="absolute top-[calc(100%+8px)] right-full mr-3 w-[380px] bg-[#f9fafb] rounded-[14px] p-6 shadow-[0_25px_60px_rgba(0,0,0,0.15)] z-50">
-              <div className="flex items-center gap-2 mb-5">
-                <Image src="/images/gift-box.svg" alt="gift" width={26} height={26} />
-                <span className="text-[22px] font-semibold text-dark">Earn perks when you invest</span>
+            <div className="absolute top-[calc(100%+6px)] right-full mr-2 w-[320px] bg-[#f9fafb] rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.14)] z-50">
+              <div className="flex items-center gap-1.5 mb-3">
+                <Image src="/images/gift-box.svg" alt="gift" width={20} height={20} />
+                <span className="text-[16px] font-semibold text-dark">Earn perks when you invest</span>
               </div>
-              {perks.map((perk) => (
+              {(perksExpanded ? perks : perks.slice(0, 3)).map((perk) => (
                 <div
                   key={perk.amount}
-                  className="mb-2.5 cursor-pointer group"
+                  className="mb-2 cursor-pointer group"
                   onClick={() => selectPerk(perk.amount)}
                 >
-                  <span className="inline-block bg-[#2e2e2e] group-hover:bg-brand text-white font-semibold px-3 py-1.5 rounded-lg text-[14px] transition">
+                  <span className="inline-block bg-[#2e2e2e] group-hover:bg-brand text-white font-semibold px-2.5 py-1 rounded-md text-[13px] transition">
                     {perk.label}
                   </span>
-                  <p className="text-[16px] text-[#344054] mt-1.5">{perk.desc}</p>
+                  <p className="text-[14px] text-[#344054] mt-1">{perk.desc}</p>
                 </div>
               ))}
+              {!perksExpanded && (
+                <button
+                  type="button"
+                  onClick={() => setPerksExpanded(true)}
+                  className="mt-1 text-[13px] font-semibold text-brand hover:text-brand-dark transition cursor-pointer"
+                >
+                  Show more
+                </button>
+              )}
             </div>
           )}
         </div>
