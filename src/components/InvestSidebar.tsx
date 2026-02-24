@@ -93,6 +93,10 @@ export default function InvestSidebar() {
             <span className="font-bold text-dark">$100M</span> valuation cap{" "}
             <span className="font-bold text-dark">20%</span> discount
           </p>
+          <p className="text-[14px] text-gray-text mt-2">
+            <Image src="/images/gift-box.svg" alt="gift" width={16} height={16} className="inline-block mr-1 align-text-bottom" />
+            <span className="font-semibold">Investor Perks:</span> $200, $500, $1K, $5K, $10K, $35K, $100K
+          </p>
         </div>
         {termsOpen && (
           <p className="text-[14px] text-gray-text mt-3 leading-relaxed">
@@ -101,12 +105,6 @@ export default function InvestSidebar() {
             worth more than $100M eventually.
           </p>
         )}
-        <div className="mt-3 pt-3 border-t border-gray-border">
-          <p className="text-[14px] text-gray-text">
-            <Image src="/images/gift-box.svg" alt="gift" width={16} height={16} className="inline-block mr-1 align-text-bottom" />
-            <span className="font-semibold">Investor Perks:</span> $200, $500, $1K, $5K, $10K, $35K, $100K
-          </p>
-        </div>
       </div>
 
       {/* Location */}
