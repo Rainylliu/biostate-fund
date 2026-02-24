@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function InvestSidebar() {
   const [amount, setAmount] = useState("");
+  const [termsOpen, setTermsOpen] = useState(false);
   const raised = 505100;
   const goal = 600000;
   const pct = Math.min((raised / goal) * 100, 100);
@@ -68,12 +69,23 @@ export default function InvestSidebar() {
 
       {/* Investment Terms */}
       <div className="mt-4 pt-4 border-t border-gray-border">
-        <div className="flex items-center justify-between">
+        <button
+          type="button"
+          onClick={() => setTermsOpen(!termsOpen)}
+          className="flex items-center justify-between w-full text-left cursor-pointer"
+        >
           <p className="text-[14px] font-medium text-gray-text uppercase tracking-wider">
             Investment Terms
           </p>
-          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-        </div>
+          <svg
+            className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${termsOpen ? "rotate-180" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
         <div className="mt-3">
           <p className="text-[14px] font-bold">Future Equity</p>
           <p className="text-[14px] text-gray-text mt-1">
@@ -81,14 +93,19 @@ export default function InvestSidebar() {
             <span className="font-bold text-dark">20%</span> discount
           </p>
         </div>
-      </div>
-
-      {/* Investor Perks */}
-      <div className="mt-3 pt-3 border-t border-gray-border">
-        <p className="text-[14px] text-gray-text">
-          <span className="mr-1">🎁</span>
-          <span className="font-semibold">Investor Perks:</span> $200, $500, $1K, $5K, $10K, $35K, $100K
-        </p>
+        {termsOpen && (
+          <p className="text-[14px] text-gray-text mt-3 leading-relaxed">
+            A Future Equity Agreement (SAFE) gives you the right to future shares
+            in the company. If you invest, you&apos;re betting the company will be
+            worth more than $100M eventually.
+          </p>
+        )}
+        <div className="mt-3 pt-3 border-t border-gray-border">
+          <p className="text-[14px] text-gray-text">
+            <span className="mr-1">🎁</span>
+            <span className="font-semibold">Investor Perks:</span> $200, $500, $1K, $5K, $10K, $35K, $100K
+          </p>
+        </div>
       </div>
 
       {/* Location */}
