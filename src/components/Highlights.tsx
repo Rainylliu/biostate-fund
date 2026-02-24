@@ -19,7 +19,7 @@ export default function Highlights() {
 
   return (
     <section className="mb-14">
-      <h2 className="text-2xl font-bold text-brand mb-6">Highlights</h2>
+      <h2 className="text-[1.875rem] font-medium leading-[2.25rem] text-[#16263d] mt-16 mb-8">Highlights</h2>
       <div className="space-y-5">
         {visible.map((text, i) => (
           <div key={i} className="flex gap-4 items-start">
