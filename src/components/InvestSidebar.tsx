@@ -52,55 +52,57 @@ export default function InvestSidebar() {
       </div>
 
       {/* Amount raised */}
-      <div className="mb-4 flex items-baseline gap-2 flex-nowrap">
-        <p className="text-[28px] font-medium text-dark leading-tight tracking-tight whitespace-nowrap">
+      <div className="mb-4">
+        <p className="text-[36px] font-medium text-dark leading-tight tracking-tight">
           ${raised.toLocaleString()}
         </p>
-        <p className="text-[14px] text-gray-text whitespace-nowrap">of a ${goal.toLocaleString()} goal</p>
+        <p className="text-[14px] text-gray-text mt-1">of a ${goal.toLocaleString()} goal</p>
       </div>
 
       {/* Invest section */}
       <div className="mb-3" ref={wrapperRef}>
-        <p className="text-[14px] font-bold text-dark mb-1.5 uppercase tracking-wide">Invest</p>
-        <div className="relative">
-          <div
-            className="flex items-center border-2 border-gray-border rounded-xl px-3 py-2.5 cursor-pointer bg-white hover:border-gray-400 transition"
-            onClick={() => setPopupOpen(true)}
-          >
-            <span className="text-gray-400 text-[18px] font-light mr-1 opacity-85">$</span>
-            <input
-              type="text"
-              inputMode="numeric"
-              placeholder="0"
-              value={amount}
-              onChange={handleAmountChange}
-              className="flex-1 text-[18px] focus:outline-none bg-transparent text-right tabular-nums text-dark"
-            />
-          </div>
-
-          {/* Perks popup - left side */}
-          {popupOpen && (
-            <div className="absolute top-[calc(100%+6px)] right-full mr-2 w-[320px] bg-[#f9fafb] rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.14)] z-50">
-              <div className="flex items-center gap-1.5 mb-3">
-                <Image src="/images/gift-box.svg" alt="gift" width={20} height={20} />
-                <span className="text-[16px] font-semibold text-dark">Earn perks when you invest</span>
-              </div>
-              {perks.map((perk) => (
-                <div
-                  key={perk.amount}
-                  className="mb-2 cursor-pointer group"
-                  onClick={() => selectPerk(perk.amount)}
-                >
-                  <span className="inline-block bg-[#2e2e2e] group-hover:bg-brand text-white font-semibold px-2.5 py-1 rounded-md text-[13px] transition">
-                    {perk.label}
-                  </span>
-                  <p className="text-[14px] text-[#344054] mt-1">{perk.desc}</p>
-                </div>
-              ))}
+        <div className="flex items-center gap-3">
+          <p className="text-[14px] font-bold text-dark uppercase tracking-wide whitespace-nowrap">Invest</p>
+          <div className="relative flex-1">
+            <div
+              className="flex items-center border-2 border-gray-border rounded-xl px-3 py-2.5 cursor-pointer bg-white hover:border-gray-400 transition"
+              onClick={() => setPopupOpen(true)}
+            >
+              <span className="text-gray-400 text-[18px] font-light mr-1 opacity-85">$</span>
+              <input
+                type="text"
+                inputMode="numeric"
+                placeholder="0"
+                value={amount}
+                onChange={handleAmountChange}
+                className="flex-1 text-[18px] focus:outline-none bg-transparent text-right tabular-nums text-dark"
+              />
             </div>
-          )}
+
+            {/* Perks popup - left side */}
+            {popupOpen && (
+              <div className="absolute top-[calc(100%+6px)] right-full mr-2 w-[320px] bg-[#f9fafb] rounded-xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.14)] z-50">
+                <div className="flex items-center gap-1.5 mb-3">
+                  <Image src="/images/gift-box.svg" alt="gift" width={20} height={20} />
+                  <span className="text-[16px] font-semibold text-dark">Earn perks when you invest</span>
+                </div>
+                {perks.map((perk) => (
+                  <div
+                    key={perk.amount}
+                    className="mb-2 cursor-pointer group"
+                    onClick={() => selectPerk(perk.amount)}
+                  >
+                    <span className="inline-block bg-[#2e2e2e] group-hover:bg-brand text-white font-semibold px-2.5 py-1 rounded-md text-[13px] transition">
+                      {perk.label}
+                    </span>
+                    <p className="text-[14px] text-[#344054] mt-1">{perk.desc}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <p className="text-xs text-gray-text whitespace-nowrap">min $100</p>
         </div>
-        <p className="text-xs text-gray-text mt-1">min $100</p>
       </div>
 
       {/* Invest button - black like Wefunder */}
