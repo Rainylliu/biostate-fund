@@ -38,31 +38,31 @@ const teamMembers = [
     name: "Dave Zhang",
     role: "Co-Founder/CEO",
     bio: "Presidential award-winning bioengineering professor with 60+ top publications and 40+ patents. Previously co-founder & CEO of innovative cancer diagnostics company that raised over $100M+ from Sequoia and AstraZeneca and reached $20M+/yr revenue.",
-    avatar: "/images/dave-zhang.svg",
+    avatar: "/images/dava.svg",
   },
   {
     name: "Jeremy Sobotta",
     role: "CFO",
     bio: "Former CFO, Perimeter Medical Imaging AI (NASDAQ: PINK). Led $4B+ in M&A capital across biotech & medtech. 15+ years senior finance leadership at Stryker & Padagis.",
-    avatar: "/images/jeremy-sobotta.svg",
+    avatar: "/images/jeremy.svg",
   },
   {
     name: "Kutapa Muthanna",
     role: "CEO, Bayosthiti.AI (India Subsidiary)",
     bio: "Former Director at KPMG; 20 years of finance and client relations leadership at KPMG and Fidelity Investments. Led global client tax and technology services.",
-    avatar: "/images/kutapa-muthanna.svg",
+    avatar: "/images/kutapa.svg",
   },
   {
     name: "Zoe Zheng",
     role: "VP of Operations",
     bio: "Experienced operations leader with a strong background in scaling biotech and healthcare companies across global markets.",
-    avatar: "/images/zoe-zheng.svg",
+    avatar: "/images/zoe.svg",
   },
   {
     name: "Mohammad Alkheilewi",
     role: "VP of Business Development, Middle East",
     bio: "Strategic business development executive with deep expertise in healthcare partnerships across the Middle East region.",
-    avatar: "/images/mohammad-alkheilewi.svg",
+    avatar: "/images/mohammad.svg",
   },
 ];
 
