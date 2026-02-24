@@ -19,7 +19,7 @@ export default function InvestSidebar() {
 
       {/* Amount raised */}
       <div className="mb-4">
-        <p className="text-[32px] font-medium text-dark leading-tight tracking-tight">
+        <p className="text-[36px] font-medium text-dark leading-tight tracking-tight">
           ${raised.toLocaleString()}
         </p>
         <p className="text-[14px] text-gray-text mt-1">of a ${goal.toLocaleString()} goal</p>
