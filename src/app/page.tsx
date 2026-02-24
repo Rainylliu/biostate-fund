@@ -162,7 +162,7 @@ function OverviewContent() {
         <h1 className="text-[30px] font-bold leading-tight text-[#16263d] mb-2">
           Help 90% of people live to 90
         </h1>
-        <h3 className="text-[22px] font-bold mb-6">Why Biostate AI?</h3>
+        <h3 className="text-[22px] font-bold mt-8 mb-3">Why Biostate AI?</h3>
         <p className="text-[18px] leading-[1.8]">
           Today, pharma companies spend billions of dollars and multiple years
           to develop new drugs that benefit less than 20% of patients for each
