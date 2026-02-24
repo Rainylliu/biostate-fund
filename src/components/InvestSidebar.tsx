@@ -64,7 +64,7 @@ export default function InvestSidebar() {
         <div className="flex items-start justify-between">
           <div className="pt-2">
             <p className="text-[14px] font-bold text-dark uppercase tracking-wide">Invest</p>
-            <p className="text-xs text-gray-text mt-0.5">min $100</p>
+            <p className="text-[14px] text-gray-text mt-0.5">min $100</p>
           </div>
           <div className="relative">
             <div
