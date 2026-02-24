@@ -25,7 +25,7 @@ function TeamMember({
         className="w-20 h-20 rounded-full flex-shrink-0 object-cover"
       />
       <div>
-        <p className="font-bold text-lg">{name} <span className="text-sm font-medium text-[#AEAEAE]">{role}</span></p>
+        <p className="font-bold text-lg">{name} <span className="text-sm font-medium text-[#AEAEAE] ml-4">{role}</span></p>
         <p className="text-[15px] text-gray-text mt-1 leading-relaxed">{bio}</p>
       </div>
     </div>
