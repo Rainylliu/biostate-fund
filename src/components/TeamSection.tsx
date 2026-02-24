@@ -20,14 +20,14 @@ const TEAM_MEMBERS = [
     bio: "Former Director at KPMG; 20 years of finance and client relations leadership at KPMG and Fidelity Investments. Led global client tax and technology services.",
   },
   {
-    name: "Ashwin Gopinath",
-    role: "Co-Founder/CTO",
-    bio: "Former MIT professor of Mechanical Engineering; co-founder of Palamedrix (acquired). 45+ peer-reviewed publications in Nature and Science. Co-developed the Reflexion method for enhancing LLM reasoning, published at NeurIPS 2023.",
+    name: "Zoe Zheng",
+    role: "CEO, Baiaosheng (China Subsidiary)",
+    bio: "Former venture capitalist at Matrix Partners China, Gaorong and other top VC funds, leading investments in technology and AI. Brings deep experience in strategic partnerships across the biotech ecosystem.",
   },
   {
-    name: "Timothy Kassis",
-    role: "Head of AI",
-    bio: "Previously led AI initiatives at Matterworks; former Lead Instructor at MIT. Expert in AI development specializing in diagnostic accuracy and medical data personalization.",
+    name: "Mohammad Alkheilewi",
+    role: "CEO, Biostate AI MENA (KSA Subsidiary)",
+    bio: "Former Managing Director at Eurofins Clinical Laboratories in Saudi Arabia with prior leadership roles at the Saudi Arabia Ministry of Health. Led major public-private partnerships for national health programs. Brings broad expertise in clinical operation.",
   },
 ];
 
