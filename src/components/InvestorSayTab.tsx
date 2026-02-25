@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface Testimonial {
   name: string;
   bio: string;
   quote: string;
   hasAvatar: boolean;
+  avatar?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -16,6 +18,7 @@ const testimonials: Testimonial[] = [
     quote:
       "After loosing my younger brother to Neuroblastoma and having my mother battle Non-Hodgkin's Lymphoma, I believe that your technology is necessary and in my opinion will change the medical world and how people receive treatment.",
     hasAvatar: true,
+    avatar: "/images/Abelardo Garcia Jr..svg",
   },
   {
     name: "Willie Abraham",
@@ -29,6 +32,7 @@ const testimonials: Testimonial[] = [
     quote:
       "As an seasoned investor, what excites us about Biostate AI is: 1) On Thesis-BoA 14 disruptive moonshot technologies_Synthetic Biology and 2) The impressive group of investors, and partners within the Provider/Payvider ecosystem. To the Moon, Biostate AI!!",
     hasAvatar: true,
+    avatar: "/images/Tom Rhodes.svg",
   },
   {
     name: "George Hauser",
@@ -42,6 +46,7 @@ const testimonials: Testimonial[] = [
     quote:
       "The future of Medicine is in our hands, and AI can accelerate the process. I believe we should invest in our future now.",
     hasAvatar: true,
+    avatar: "/images/Jairzinho Reinaldo Augustin Tromp.svg",
   },
   {
     name: "Lakeith Lee",
@@ -55,6 +60,7 @@ const testimonials: Testimonial[] = [
     bio: "Gentlemen, Bowling, Horse Racing, Investing, Movies, Nascar, R&B Music",
     quote: "I Believe and have Faith in the Company",
     hasAvatar: true,
+    avatar: "/images/Lance Bradley.svg",
   },
   {
     name: "Offe Lac",
@@ -75,13 +81,15 @@ const testimonials: Testimonial[] = [
     quote:
       "I have a great appreciation for your team with a goal of improving Healthcare for the community and wish you the best. Sincerely Dennis Lortie",
     hasAvatar: true,
+    avatar: "/images/Dennis Lordy.svg",
   },
   {
     name: "Amanda Remark",
     bio: "Welcome to All in 1 Source – your ultimate destination for creating opportunities and exploring the world of shopping.",
     quote:
       "Hi I'm Amanda. I'm investing in AI cause the outcome of long term growth.",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Amanda Remark.svg",
   },
   {
     name: "Iqbal Singh",
@@ -94,14 +102,16 @@ const testimonials: Testimonial[] = [
     name: "Prakash Bhambhani",
     bio: "employee in dubai in private firm",
     quote: "founders and subject",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Prakash Bhambhani.svg",
   },
   {
     name: "Xi Chen",
     bio: "",
     quote:
       "The combo of biology and AI will be a total game-changer for humanity!",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Xi Chen.svg",
   },
   {
     name: "Wen Liu",
@@ -125,7 +135,8 @@ const testimonials: Testimonial[] = [
     name: "Jason Cui",
     bio: "Founder/investor",
     quote: "RSI '13 alum here. Excited to be a part of a journey!!",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Jason Cui.svg",
   },
   {
     name: "Rachel Schiff",
@@ -158,7 +169,8 @@ const testimonials: Testimonial[] = [
     bio: "Combat vet and now retired",
     quote:
       "To insure my financial future with a company I believe has a future",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Ernest J King.svg",
   },
   {
     name: "Thomas Kafsack",
@@ -189,7 +201,8 @@ const testimonials: Testimonial[] = [
     bio: "Career national security analyst and strategist; Certified executive coach; Tech and innovation strategist",
     quote:
       "I support tech that can enhance our health and wellbeing and make it accessible. This has the potential for great impact on healthcare.",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Kristyn Ream.svg",
   },
   {
     name: "P KRUEB",
@@ -203,13 +216,15 @@ const testimonials: Testimonial[] = [
     bio: "Founder of AURORA and creator of Rory, an AI-powered platform redesigning rental housing infrastructure for the next generation.",
     quote:
       "Hi Dave and Ashwin — I just invested in Biostate because I'm genuinely excited about what you're building. Your mission and model strike that rare balance of technical innovation and practical, high-impact delivery. It's clear you're solving a real problem with urgency and clarity — and that's the kind of founder energy I want to be behind. I'm also a founder — building AURORA, a tech company redesigning rental housing infrastructure for the next generation. Wishing you continued momentum. I'll be watching (and rooting for) your journey! Warmly, Alissa Carpio",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Alissa Carpio.svg",
   },
   {
     name: "Jesus Adolfo Ortega Turrubiates",
     bio: "I would like to be an entrepreneur and help the community, so entrepreneurs inspire me.",
     quote: "I believe in the potential of AI for the medical industry.",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Jesus Adolfo Ortega Turrubiates.svg",
   },
   {
     name: "Francis R Rinault",
@@ -228,7 +243,8 @@ const testimonials: Testimonial[] = [
     name: "Tammy Morris",
     bio: "account representative then moved to sales sold more than anyone else each month",
     quote: "I have an autistic grandson. This is for him.",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Tammy Morris.svg",
   },
   {
     name: "Mai Nguyen",
@@ -241,7 +257,8 @@ const testimonials: Testimonial[] = [
     name: "Naga Sanka",
     bio: "I am an AI/ML Engineer working in an automotive industry.",
     quote: "This is to encourage the idea and support Dave and Ashwin.",
-    hasAvatar: false,
+    hasAvatar: true,
+    avatar: "/images/Naga Sanka.svg",
   },
 ];
 
@@ -283,7 +300,15 @@ export default function InvestorSayTab() {
       <div className="space-y-6">
         {visible.map((t, i) => (
           <div key={i} className="flex gap-4 items-start">
-            {t.hasAvatar ? (
+            {t.avatar ? (
+              <Image
+                src={t.avatar}
+                alt={t.name}
+                width={56}
+                height={56}
+                className="w-14 h-14 rounded-full flex-shrink-0 object-cover"
+              />
+            ) : t.hasAvatar ? (
               <AvatarWithInitial name={t.name} />
             ) : (
               <AvatarPlaceholder />
