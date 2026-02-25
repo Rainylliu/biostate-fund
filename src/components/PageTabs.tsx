@@ -17,8 +17,8 @@ export default function PageTabs({
 
   return (
     <>
-      {/* Tabs */}
-      <div className="flex gap-4 sm:gap-8 pb-4 mb-10 text-[16px] font-semibold flex-wrap">
+      {/* Tabs - hidden on mobile, only show on sm+ */}
+      <div className="hidden sm:flex gap-8 pb-4 mb-10 text-[16px] font-semibold">
         <button
           onClick={() => setActiveTab("overview")}
           className={`pb-1 -mb-[17px] cursor-pointer transition ${
@@ -61,9 +61,12 @@ export default function PageTabs({
         </a>
       </div>
 
-      {/* Tab content */}
-      {activeTab === "overview" && overviewContent}
-      {activeTab === "investors" && investorSayContent}
+      {/* Tab content: mobile always shows overview, desktop follows activeTab */}
+      <div className="sm:hidden">{overviewContent}</div>
+      <div className="hidden sm:block">
+        {activeTab === "overview" && overviewContent}
+        {activeTab === "investors" && investorSayContent}
+      </div>
     </>
   );
 }
