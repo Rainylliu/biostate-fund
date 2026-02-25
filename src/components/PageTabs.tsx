@@ -17,34 +17,34 @@ export default function PageTabs({
 
   return (
     <>
-      {/* Tabs */}
-      <div className="flex gap-8 border-b border-gray-border pb-4 mb-10 text-[13px] font-semibold uppercase tracking-wider">
+      {/* Tabs - hidden on mobile, only show on sm+ */}
+      <div className="hidden sm:flex gap-8 pb-4 mb-10 text-[16px] font-semibold">
         <button
           onClick={() => setActiveTab("overview")}
-          className={`pb-4 -mb-[17px] cursor-pointer transition ${
+          className={`pb-1 -mb-[17px] cursor-pointer transition ${
             activeTab === "overview"
-              ? "text-dark border-b-2 border-dark"
+              ? "text-dark border-b-2 border-[#3077b8]"
               : "text-gray-text hover:text-dark"
           }`}
         >
-          Overview
+          OVERVIEW
         </button>
         <button
-          className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px] transition"
+          className="text-gray-text hover:text-dark cursor-pointer pb-1 -mb-[17px] transition"
           disabled
         >
-          Posts
+          POSTS
         </button>
         <button
           onClick={() => setActiveTab("investors")}
-          className={`pb-4 -mb-[17px] cursor-pointer transition ${
+          className={`pb-1 -mb-[17px] cursor-pointer transition ${
             activeTab === "investors"
-              ? "text-dark border-b-2 border-dark"
+              ? "text-dark border-b-2 border-[#3077b8]"
               : "text-gray-text hover:text-dark"
           }`}
         >
-          What Investors Say{" "}
-          <span className="inline-flex items-center justify-center bg-brand text-white text-[11px] font-bold rounded-full w-5 h-5 ml-1">
+          WHAT INVESTORS SAY{" "}
+          <span className="inline-flex items-center justify-center bg-[#C1C1C1] text-white text-[11px] font-bold rounded px-1.5 py-0.5 ml-1">
             36
           </span>
         </button>
@@ -52,18 +52,21 @@ export default function PageTabs({
           href="https://wefunder.com/biostateai/ask"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-text hover:text-dark cursor-pointer pb-4 -mb-[17px] transition"
+          className="text-gray-text hover:text-dark cursor-pointer pb-1 -mb-[17px] transition"
         >
-          Ask A Question on Wefunder{" "}
-          <span className="inline-flex items-center justify-center bg-gray-200 text-gray-text text-[11px] font-bold rounded-full w-5 h-5 ml-1">
+          ASK A QUESTION ON WEFUNDER{" "}
+          <span className="inline-flex items-center justify-center bg-[#C1C1C1] text-white text-[11px] font-bold rounded px-1.5 py-0.5 ml-1">
             10
           </span>
         </a>
       </div>
 
-      {/* Tab content */}
-      {activeTab === "overview" && overviewContent}
-      {activeTab === "investors" && investorSayContent}
+      {/* Tab content: mobile always shows overview, desktop follows activeTab */}
+      <div className="sm:hidden">{overviewContent}</div>
+      <div className="hidden sm:block">
+        {activeTab === "overview" && overviewContent}
+        {activeTab === "investors" && investorSayContent}
+      </div>
     </>
   );
 }
