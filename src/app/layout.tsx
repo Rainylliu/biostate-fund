@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,8 +32,13 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+      </head>
+      <body className="bg-white">
+        {children}
         {/* Meta Pixel Code */}
-        <script
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -48,21 +54,15 @@ export default function RootLayout({
             `,
           }}
         />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1559298182908887&ev=PageView&noscript=1"
-          />
-        </noscript>
         {/* End Meta Pixel Code */}
         {/* Google tag (gtag.js) */}
-        <script
-          async
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PH3SMW9D34"
+          strategy="afterInteractive"
         />
-        <script
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -73,7 +73,9 @@ export default function RootLayout({
           }}
         />
         {/* Hotjar Tracking Code for Crowdfunding */}
-        <script
+        <Script
+          id="hotjar"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(h,o,t,j,a,r){
@@ -87,8 +89,7 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className="bg-white">{children}</body>
+      </body>
     </html>
   );
 }
