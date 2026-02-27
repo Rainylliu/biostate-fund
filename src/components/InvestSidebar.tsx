@@ -122,14 +122,12 @@ export default function InvestSidebar() {
         INVEST
       </a>
 
-      {/* Follow on Wefunder button */}
+      {/* Contact Us button */}
       <a
-        href="https://wefunder.com/biostateai/"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="mailto:info@biostateai.com"
         className="w-full mt-3 border-2 border-dark text-dark text-center font-bold py-3 rounded-lg hover:bg-gray-50 transition text-[14px] tracking-wide flex items-center justify-center gap-2"
       >
-        FOLLOW ON WEFUNDER
+        CONTACT US
       </a>
 
       {/* Investment Terms */}
