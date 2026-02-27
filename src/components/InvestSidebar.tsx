@@ -2,11 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import ContactModal from "./ContactModal";
 
 export default function InvestSidebar() {
   const [amount, setAmount] = useState("");
   const [termsOpen, setTermsOpen] = useState(false);
   const [popupOpen, setPopupOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const perks = [
@@ -123,12 +125,15 @@ export default function InvestSidebar() {
       </a>
 
       {/* Contact Us button */}
-      <a
-        href="mailto:info@biostateai.com"
-        className="w-full mt-3 border-2 border-dark text-dark text-center font-bold py-3 rounded-lg hover:bg-gray-50 transition text-[14px] tracking-wide flex items-center justify-center gap-2"
+      <button
+        type="button"
+        onClick={() => setContactOpen(true)}
+        className="w-full mt-3 border-2 border-dark text-dark text-center font-bold py-3 rounded-lg hover:bg-gray-50 transition text-[14px] tracking-wide flex items-center justify-center gap-2 cursor-pointer"
       >
         CONTACT US
-      </a>
+      </button>
+
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
 
       {/* Investment Terms */}
       <div className="mt-4 pt-4 border-t border-gray-border">
