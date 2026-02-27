@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     }
 
     await resend.emails.send({
-      from: "Biostate AI Contact <onboarding@resend.dev>",
+      from: "Biostate AI <noreply@biostate.ai>",
       to: ["invest@biostate.ai", "olivia.jin@biostate.ai"],
       replyTo: email,
       subject: `Contact Form: ${name}`,
