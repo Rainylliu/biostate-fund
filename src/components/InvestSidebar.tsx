@@ -126,9 +126,8 @@ export default function InvestSidebar() {
         }}
         className="block w-full bg-dark text-white text-center font-bold py-3 rounded-lg hover:bg-gray-800 transition text-[14px] tracking-wide"
       >
-        INVEST
+        INVEST ON WEFUNDER
       </a>
-      <p className="text-center text-[13px] text-gray-text mt-1">on Wefunder</p>
 
       {/* Follow on Wefunder button */}
       <a
