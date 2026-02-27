@@ -12,6 +12,8 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,17 +33,28 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setSending(true);
+    setError("");
 
-    const to = "invest@biostate.ai,olivia.jin@biostate.ai";
-    const subject = encodeURIComponent(`Contact from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-    window.open(`mailto:${to}?subject=${subject}&body=${body}`, "_self");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-    setSubmitted(true);
+      if (!res.ok) {
+        throw new Error("Failed to send");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Failed to send message. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
   }
 
   function handleClose() {
@@ -49,6 +62,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     setEmail("");
     setMessage("");
     setSubmitted(false);
+    setError("");
     onClose();
   }
 
@@ -125,11 +139,16 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                 />
               </div>
 
+              {error && (
+                <p className="text-red-500 text-[13px]">{error}</p>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-dark text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition text-[14px] tracking-wide cursor-pointer"
+                disabled={sending}
+                className="w-full bg-dark text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition text-[14px] tracking-wide cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                SUBMIT
+                {sending ? "SENDING..." : "SUBMIT"}
               </button>
             </form>
 
