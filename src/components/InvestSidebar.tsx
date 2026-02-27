@@ -128,6 +128,7 @@ export default function InvestSidebar() {
       >
         INVEST
       </a>
+      <p className="text-center text-[13px] text-gray-text mt-1">on Wefunder</p>
 
       {/* Follow on Wefunder button */}
       <a
