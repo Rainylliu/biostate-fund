@@ -9,6 +9,7 @@ interface ContactModalProps {
 
 export default function ContactModal({ open, onClose }: ContactModalProps) {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     e.preventDefault();
     setError("");
 
-    if (!name || !message) {
+    if (!name || !email || !message) {
       setError("Please fill in all fields.");
       return;
     }
@@ -50,6 +51,7 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
 
   function handleClose() {
     setName("");
+    setEmail("");
     setMessage("");
     setError("");
     onClose();
@@ -93,6 +95,21 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-[14px] focus:outline-none focus:border-dark transition"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-email" className="block text-[13px] font-semibold text-dark mb-1">
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
                   className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-[14px] focus:outline-none focus:border-dark transition"
                 />
               </div>
