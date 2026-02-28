@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: `"Biostate AI" <${process.env.SMTP_USER}>`,
-      to: "invest@biostate.ai, olivia.jin@biostate.ai, rainy.liu@biostate.ai",
+      to: "invest@biostate.ai, olivia.jin@biostate.ai",
       replyTo: email,
       subject: `Contact Form: ${name}`,
       html: `
