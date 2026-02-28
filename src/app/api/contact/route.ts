@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,9 +19,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
-    await resend.emails.send({
-      from: "Biostate AI <noreply@biostate.ai>",
-      to: ["invest@biostate.ai", "olivia.jin@biostate.ai"],
+    await transporter.sendMail({
+      from: `"Biostate AI" <${process.env.SMTP_USER}>`,
+      to: "invest@biostate.ai, olivia.jin@biostate.ai",
       replyTo: email,
       subject: `Contact Form: ${name}`,
       html: `
