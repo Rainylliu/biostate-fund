@@ -42,7 +42,7 @@ export default function InvestSidebar() {
     setPopupOpen(false);
   }
 
-  const raised = 505100;
+  const raised = 506200;
   const goal = 2000000;
   const pct = Math.min((raised / goal) * 100, 100);
 
