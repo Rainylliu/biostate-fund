@@ -42,8 +42,8 @@ export default function InvestSidebar() {
     setPopupOpen(false);
   }
 
-  const raised = 505100;
-  const goal = 600000;
+  const raised = 506200;
+  const goal = 2000000;
   const pct = Math.min((raised / goal) * 100, 100);
 
   return (
@@ -118,10 +118,17 @@ export default function InvestSidebar() {
           if (typeof window !== "undefined" && typeof window.fbq === "function") {
             window.fbq("trackCustom", "InvestClick");
           }
+          if (typeof window !== "undefined" && typeof window.gtag === "function") {
+            window.gtag("event", "conversion", {
+              send_to: "AW-17775684151/0v-XCIr82_0bELfUjZxC",
+              value: 1.0,
+              currency: "USD",
+            });
+          }
         }}
         className="block w-full bg-dark text-white text-center font-bold py-3 rounded-lg hover:bg-gray-800 transition text-[14px] tracking-wide"
       >
-        INVEST
+        INVEST ON WEFUNDER
       </a>
 
       {/* Contact Us button */}
