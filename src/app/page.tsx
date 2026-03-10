@@ -5,7 +5,9 @@ import PageTabs from "@/components/PageTabs";
 import InvestorSayTab from "@/components/InvestorSayTab";
 import Highlights from "@/components/Highlights";
 import TeamSection from "@/components/TeamSection";
+import FeaturedInvestors from "@/components/FeaturedInvestors";
 import InvestButton from "@/components/InvestButton";
+import ReadingProgress from "@/components/ReadingProgress";
 
 /* ─── Section image: full-width image from Wefunder screenshots ─── */
 function SectionImage({
@@ -130,8 +132,8 @@ export default function Home() {
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-border p-4 lg:hidden z-50">
         <div className="flex items-center justify-between max-w-lg mx-auto">
           <div className="flex items-baseline gap-2">
-            <p className="font-bold text-[20px]">$506,200</p>
-            <p className="text-xs text-gray-text">of $2,000,000 goal</p>
+            <p className="font-bold text-[20px]">$561,400</p>
+            <p className="text-xs text-gray-text">of $1,735,000 goal</p>
           </div>
           <InvestButton className="bg-brand text-white font-bold px-6 py-3 rounded-lg hover:bg-brand-dark transition">
             INVEST
@@ -149,9 +151,16 @@ function OverviewContent() {
       {/* ── Highlights ── */}
       <Highlights />
 
+      {/* ── Featured Investors ── */}
+      <FeaturedInvestors />
+
       {/* ── Team (brief) ── */}
       <TeamSection />
 
+      {/* ── Reading Progress Bar (pitch deck navigation) ── */}
+      <ReadingProgress />
+
+      <div id="section-intro">
       <hr className="border-gray-border mb-12" />
 
       {/* ── Why Biostate AI ── */}
@@ -235,6 +244,9 @@ function OverviewContent() {
         </p>
       </section>
 
+      </div>
+
+      <div id="section-problem">
       {/* ── The World Is Losing Billions of Healthy Years ── */}
       <section className="mb-14">
         <h3 className="text-2xl font-bold mb-4">
@@ -278,6 +290,9 @@ function OverviewContent() {
         </p>
       </section>
 
+      </div>
+
+      <div id="section-ai">
       {/* ── Affordable Multiomics At Scale ── */}
       <section className="mb-14">
         <SectionImage
@@ -417,6 +432,9 @@ function OverviewContent() {
         </p>
       </section>
 
+      </div>
+
+      <div id="section-team">
       {/* ── Our Leadership Team ── */}
       <section className="mb-14">
         <SectionImage
@@ -485,9 +503,6 @@ function OverviewContent() {
         </p>
       </section>
 
-      {/* ── What Investors Say ── */}
-      <InvestorTestimonials />
-
       {/* ── CTA ── */}
       <section className="mb-14">
         <div className="rounded-2xl overflow-hidden">
@@ -523,6 +538,11 @@ function OverviewContent() {
         </div>
       </section>
 
+      </div>
+
+      {/* ── What Investors Say (outside pitch deck progress tracking) ── */}
+      <InvestorTestimonials />
+
       {/* ── Disclaimer ── */}
       <section className="text-xs text-gray-text leading-relaxed border-t border-gray-border pt-6">
         <p>
@@ -534,6 +554,7 @@ function OverviewContent() {
           obligation or commitment of any kind.
         </p>
       </section>
+
     </>
   );
 }
